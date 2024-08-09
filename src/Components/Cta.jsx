@@ -51,20 +51,20 @@ const Cta = () => {
 
     return (
         <section ref={ctaSectionRef} className="py-20 text-center bg-white">
-            <h2 className="font-bold text-[2rem] leading-tight mb-12 max-w-[80%] mx-auto">
+            <h2 className="font-semibold sm:font-bold text-[2rem] leading-tight mb-12 max-w-[80%] mx-auto">
             Contact us today to learn more about our services and take your remote work to the next level!
             </h2>
             <div className="grid grid-cols-3 mb-6">
                 <div>
-                    <p className="text-5xl">+{happyCustomers}</p>
+                    <p className="text-lg sm:text-5xl">+{happyCustomers}</p>
                     <p>Happy Customers</p>
                 </div>
                 <div className="border-r border-l">
-                    <p className="text-5xl">100%</p>
+                    <p className="text-lg sm:text-5xl">100%</p>
                     <p>Work Quality</p>
                 </div>
                 <div>
-                    <p className="text-5xl">+{peopleSubscribed}</p>
+                    <p className="text-lg sm:text-5xl">+{peopleSubscribed}</p>
                     <p>People Subscribed</p>
                 </div>
             </div>
