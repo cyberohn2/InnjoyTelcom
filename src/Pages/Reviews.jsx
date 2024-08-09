@@ -19,6 +19,7 @@ const Reviews = () =>{
         <div>
             <Testimonials />
             <form onSubmit={handleSubmit} className="max-w-md mx-auto p-4">
+                <h1>Write a Review</h1>
                 <div className="mb-4">
                     <label className="block text-sm font-medium text-gray-700">Name</label>
                     <input
