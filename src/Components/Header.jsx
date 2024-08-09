@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 import { useEffect, useState } from "react";
 import logo from "/injoylogo.jpg";
 import burgerMenu from "/menu-burger.svg";
@@ -46,11 +46,11 @@ const Header = () => {
                     </div>
                 </Link>
                 <ul className="hidden md:flex gap-4">
-                    {["Home", "About", "Contact Us"].map((item, index) => (
+                    {["Home", "About", "Contact Us", "Our Reviews"].map((item, index) => (
                         <li key={index}>
-                            <Link className="hover:text-[#3a40d4]" to={ item !== "Home" ? `/${item.toLowerCase().replace(/\s+/g, "-")}` : "/"}>
+                            <NavLink className="hover:text-[#3a40d4]" to={ item !== "Home" ? `/${item.toLowerCase().replace(/\s+/g, "-")}` : "/"}>
                                 {item}
-                            </Link>
+                            </NavLink>
                         </li>
                     ))}
                 </ul>

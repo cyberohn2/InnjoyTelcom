@@ -5,6 +5,7 @@ import Contact from "./Pages/Contact"
 import SignUp from "./Pages/SignUp"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
+import Reviews from "./Pages/Reviews"
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/contact-us" element={<Contact />}></Route>
           <Route exact path="/sign-up" element={<SignUp />}></Route>
+          <Route exact path="/our-reviews" element={<Reviews />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />

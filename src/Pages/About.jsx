@@ -17,8 +17,7 @@ const About = () =>{
                             <p className="text-[13.5px] text-[#666666]">Innjoy Telecom understands the importance of flexibility and reliability in today's remote work environment. Our telecommution services are designed to help you stay connected and productive from anywhere, at any time.</p>
                         </div>
                         <div className="flex items-center gap-[19px]">
-                            <PryCtaBtn text="Get Started Now"/>
-                            <SecCtaBtn text="View all Services"/>
+                            <PryCtaBtn link="/sign-up" text="Sign Up"/>
                         </div>
                     </div>
                 </div>
