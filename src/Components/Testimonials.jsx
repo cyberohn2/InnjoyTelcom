@@ -8,24 +8,21 @@ import quotePng from "/quote-png.svg";
 
 const Testimonies = [
     {
-        title: "Best Company",
-        content: "I am registered with 1 line and pay 10,000. My fiancee is also registered with 1 number and pay 10k as well. We registered by September 2023 and have been making calls nearly everyday since then. We plan to renew our registration by Sept 2024.",
-        user: "Terence"
-    },
+        name: "Terence",title: "Best Company",content: "I am registered with 1 line and pay 10,000. My fiancee is also registered with 1 number and pay 10k as well. We registered by September 2023 and have been making calls nearly everyday since then. We plan to renew our registration by Sept 2024."},
     {
+        name: "Chuks.",
         title: "Right Choice",
-        content: "I have 4 AIRTEL Numbers. 1 is with my parents in the village, 1 is with a son in his school. 1 with my manager in my office and the 4th line is with me. ALL of us can call each other 24/7 all year round with just a token of 10k per annum per number. I renew my subscription once a year and we don't need to buy credit to call each other at all.",
-        user: "Chuks."
+        content: "I have 4 AIRTEL Numbers. 1 is with my parents in the village, 1 is with a son in his school. 1 with my manager in my office and the 4th line is with me. ALL of us can call each other 24/7 all year round with just a token of 10k per annum per number. I renew my subscription once a year and we don't need to buy credit to call each other at all."
     },
     {
+        name: "Timothy",
         title: "Affordable",
-        content: "I stay in touch with my family all day long and we don't have to worry about call credit. I have to 2 Innjoy Telcom CALL BONANZA numbers. One with me and the 2nd at my home.",
-        user: "Timothy"
+        content: "I stay in touch with my family all day long and we don't have to worry about call credit. I have to 2 Innjoy Telcom CALL BONANZA numbers. One with me and the 2nd at my home."
     },
     {
+        name: "Faithful",
         title: "Thank You for This",
-        content: "It was a surprise for me that my siblings will call me while I was away in University and talk as if they don't buy credit with money. I had to ask my dad his secret and was amazed that ur company provided us that platform.",
-        user: "Faithful"
+        content: "It was a surprise for me that my siblings will call me while I was away in University and talk as if they don't buy credit with money. I had to ask my dad his secret and was amazed that ur company provided us that platform."
     }
 ];
 
