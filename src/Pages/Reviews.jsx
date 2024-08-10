@@ -11,7 +11,7 @@ const Reviews = () => {
     // Function to fetch reviews from the backend
     const fetchReviews = async () => {
         try {
-            const response = await fetch('http://localhost:5000/reviews');
+            const response = await fetch('https://innjoytelcom-backend-production.up.railway.app/reviews');
             if (!response.ok) {
                 throw new Error('Failed to fetch reviews');
             }
@@ -25,7 +25,7 @@ const Reviews = () => {
     // Function to add a review to the backend
     const addReview = async (review) => {
         try {
-            const response = await fetch('http://localhost:5000/reviews', {
+            const response = await fetch('https://innjoytelcom-backend-production.up.railway.app/reviews', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
