@@ -157,22 +157,33 @@ const SignupForm = () => {
         e.preventDefault();
         if (validate()) {
             const formDataToSend = new FormData();
-            formData.forEach((user) => {
-                formDataToSend.append("firstName", user.firstName);
-                formDataToSend.append("lastName", user.lastName);
-                formDataToSend.append("phoneNumber", user.phoneNumber);
-                formDataToSend.append("nin", user.nin);
+    
+            formData.forEach((user, index) => {
+                const userData = {
+                    firstName: user.firstName,
+                    lastName: user.lastName,
+                    phoneNumber: user.phoneNumber,
+                    nin: user.nin,
+                };
+    
+                // Append user data as JSON string
+                formDataToSend.append(`user_${index}`, JSON.stringify(userData));
+    
+                // Append files separately
                 if (user.utilityBill) {
-                    formDataToSend.append("files", user.utilityBill);
+                    formDataToSend.append(`utilityBill_${index}`, user.utilityBill);
                 }
                 if (user.ninSlip) {
-                    formDataToSend.append("files", user.ninSlip);
+                    formDataToSend.append(`ninSlip_${index}`, user.ninSlip);
                 }
             });
-
+    
             fetch('https://innjoy-signup-production.up.railway.app/submit-form', {
                 method: 'POST',
                 body: formDataToSend,
+                headers: {
+                    // 'Content-Type': 'multipart/form-data' // Do not set this manually when using FormData
+                }
             })
             .then(response => {
                 const contentType = response.headers.get("content-type");
@@ -200,6 +211,7 @@ const SignupForm = () => {
             });
         }
     };
+    
 
     const addUser = () => {
         setFormData([...formData, { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }]);
