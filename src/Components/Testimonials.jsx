@@ -5,6 +5,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import rightArrow from "/right-arrow.svg";
 import quotePng from "/quote-png.svg";
+import PryCtaBtn from './PryCtaBtn';
 
 const Testimonies = [
     {
@@ -28,7 +29,7 @@ const Testimonies = [
 
 const TestimonialItem = ({ title, content, user, mail="" }) => {
     return (
-        <div className="p-4 pt-12 flex flex-col bg-white max-w-[450px] rounded-xl shadow-sm border-t-[7.5px] border-r-[7.5px] border-[#3a40d4] relative ml-auto">
+        <div className="p-4 pt-12 flex flex-col bg-white rounded-xl shadow-sm border-t-[7.5px] border-r-[7.5px] border-[#3a40d4] relative ml-auto">
             <img className="absolute top-4 right-4" loading="lazy" src={quotePng} alt="quote" />
             <h4 className="text-[18px] font-semibold mb-4">{title}</h4>
             <p className="text-[12px] text-[#666666] mb-4">{content}</p>
@@ -40,10 +41,10 @@ const TestimonialItem = ({ title, content, user, mail="" }) => {
 
 const Testimonials = () => {
     return (
-        <div className="bg-white">
-            <div className='max-w-[1440px] mx-auto px-8 py-[56px] flex flex-col sm:items-start sm:flex-row justify-between gap-8'>
-                <div className="max-w-[375px]">
-                    <h2 className="text-[33px] font-semibold mb-[18px]">Feedback About Their Experience With Us</h2>
+        <div className="bg-white flex flex-col items-center pb-4 overflow-x-hidden">
+            <div className='max-w-[1440px] mx-auto px-4 sm:px-8 py-[56px] flex flex-col sm:items-start sm:flex-row justify-between gap-8'>
+                <div className="">
+                    <h2 className="text-lg sm:text-[33px] font-semibold mb-[18px]">What our Customers have to say</h2>
                     <p className="text-[12px] text-[#666666] mb-[27px]">Read testimonials from our satisfied clients. See how our services have made a difference in their lives.</p>
                     <div className="flex items-center gap-[9px]">
                         <button id="prev-slide" className="border border-[#36B864] hover:bg-[#36B864] rounded-[4.5px] p-[12px] text-[#111d15] flex items-center justify-center">
@@ -54,11 +55,11 @@ const Testimonials = () => {
                         </button>
                     </div>
                 </div>
-                <div className="testimonial-slider w-full sm:w-[calc(80%-375px)]">
+                <div className="testimonial-slider w-full max-w-[375px]">
                     <Swiper
                         modules={[Navigation, Pagination]}
-                        spaceBetween={30}
-                        slidesPerView={1}
+                        spaceBetween={0}  // Removed extra margin between slides
+                        slidesPerView={1}  // Ensures only one slide is visible at a time
                         navigation={{
                             prevEl: '#prev-slide',
                             nextEl: '#next-slide',
@@ -71,13 +72,14 @@ const Testimonials = () => {
                                 <TestimonialItem
                                     title={testimony.title}
                                     content={testimony.content}
-                                    user={testimony.user}
+                                    user={testimony.name}
                                 />
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
             </div>
+            <PryCtaBtn text="See More" link="our-reviews" />
         </div>
     );
 };

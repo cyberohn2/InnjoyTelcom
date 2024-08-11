@@ -6,7 +6,6 @@ import locationIcon from "/location-icon.svg";
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: "",
-        email: "",
         message: ""
     });
 
@@ -23,25 +22,26 @@ const Contact = () => {
     const validate = () => {
         let formErrors = {};
         if (!formData.name) formErrors.name = "Name is required";
-        if (!formData.email) {
-            formErrors.email = "Email is required";
-        } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-            formErrors.email = "Email is invalid";
-        }
         if (!formData.message) formErrors.message = "Message is required";
         return formErrors;
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const formErrors = validate();
+    
+        const formErrors = validate(); 
+    
         if (Object.keys(formErrors).length === 0) {
-            // Form is valid, handle form submission here
+            const waLink = `https://wa.me/2349010817543?text=Hi+I'm+${formData.name}%0A${encodeURIComponent(formData.message)}`;
+            
             console.log("Form submitted successfully", formData);
+            window.location.href = waLink; 
+    
         } else {
             setErrors(formErrors);
         }
     };
+    
 
     return (
         <div id="contact" className="py-[56px] flex flex-col sm:flex-row justify-between gap-4 max-w-[1080px] mx-auto px-8">
@@ -99,18 +99,6 @@ const Contact = () => {
                             />
                         </div>
                         {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
-                        <div className="p-[14px] rounded-[3px] bg-white border border-[#F3F3F3] flex items-center">
-                            <label className="mr-[9px] block" htmlFor="email">Email</label>
-                            <input
-                                className="outline-none"
-                                name="email"
-                                id="email"
-                                type="email"
-                                value={formData.email}
-                                onChange={handleChange}
-                            />
-                        </div>
-                        {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
                         <div className="p-[14px] rounded-[3px] bg-white border border-[#F3F3F3]">
                             <label className="mb-[9px] block" htmlFor="message">Message</label>
                             <textarea

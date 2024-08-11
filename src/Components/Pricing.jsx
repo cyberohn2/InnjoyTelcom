@@ -12,17 +12,20 @@ const Pricing = () =>{
                 <div className="grid sm:grid-cols-3 grid-cols-1 gap-[22px]">
                     <div className="px-[26px] py-[22px] border border-[#F3F3F3] bg-white flex flex-col items-stretch rounded-[15px] shadow-sm">
                         <p className="text-[15px] text-[#111D15] mb-[18px] font-semibold uppercase text-center">Monthly Package</p>
-                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">$ <span className="text-[24px] font-bold">1000/</span>Monthly</div>
+                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">₦ <span className="text-[24px] font-bold">1000/</span>Month</div>
+                        <p>Enjoy Our Airtel Call BONANZA for a Month</p>
                         <SecCtaBtn link="/sign-up" text="Register" />
                     </div>
                     <div className="px-[26px] py-[22px] border border-[#F3F3F3] bg-white flex flex-col items-stretch rounded-[15px] shadow-sm">
                         <p className="text-[15px] text-[#111D15] mb-[18px] font-semibold uppercase text-center">6 Month Package</p>
-                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">$ <span className="text-[24px] font-bold">5500/</span>6 Monthly</div>
+                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">₦ <span className="text-[24px] font-bold">5500/</span>6 Months</div>
+                        <p>Enjoy Our Airtel Call BONANZA for 6 Months </p>
                         <SecCtaBtn link="/sign-up" text="Register" />
                     </div>
                     <div className="px-[26px] py-[22px] border border-[#F3F3F3] bg-white flex flex-col items-stretch rounded-[15px] shadow-sm">
                         <p className="text-[15px] text-[#111D15] mb-[18px] font-semibold uppercase text-center">Yearly Package</p>
-                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">$ <span className="text-[24px] font-bold">10000/</span>Yearly</div>
+                        <div className="px-[30px] py-[15px] bg-[#474df3] text-[12px] text-center rounded-[7.5px] mb-[27px]">₦ <span className="text-[24px] font-bold">10000/</span>Year</div>
+                        <p>Enjoy Our Airtel Call BONANZA for a year</p>
                         <SecCtaBtn link="/sign-up" text="Register" />
                     </div>
                 </div>

@@ -22,7 +22,7 @@ const About = () =>{
                     </div>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-8 py-10">
+            <div className="grid sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-4 sm:px-8 py-10">
                 <div>
                     <h3 className="mb-4 font-semibold text-xl">Key Features</h3>
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px] ">

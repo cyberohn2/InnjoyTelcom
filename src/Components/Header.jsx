@@ -33,7 +33,7 @@ const Header = () => {
                 isScrolled ? "bg-[#dce3f1]" : "bg-white"
             }`}
         >
-            <nav className="py-[1.125rem] max-w-[1440px] mx-auto px-8 flex items-center justify-between">
+            <nav className="py-[1.125rem] max-w-[1440px] mx-auto px-4 sm:px-8 flex items-center justify-between">
                 <Link to="/">
                     <div className="logo flex gap-2 items-center">
                             <img
@@ -42,7 +42,7 @@ const Header = () => {
                                 alt="Innjoy Telcom Logo"
                                 className="rounded-full"
                             />
-                            <p className="font-bold text-lg">INNJOY TELCOM</p>
+                            <p className="font-bold text-md sm:text-lg">INNJOY TELCOM</p>
                     </div>
                 </Link>
                 <ul className="hidden md:flex gap-4">
@@ -77,12 +77,12 @@ const Header = () => {
                     <ul className="flex flex-col items-start w-full gap-8 text-lg mb-8">
                         {["Home", "About", "Contact Us", "Our Reviews"].map((item, index) => (
                             <li className="border-b w-full" key={index}>
-                                <Link
-                                    to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                                <NavLink
+                                    to={ item !== "Home" ? `/${item.toLowerCase().replace(/\s+/g, "-")}` : "/"}
                                     onClick={toggleMobileMenu}
                                 >
                                     {item}
-                                </Link>
+                                </NavLink>
                             </li>
                         ))}
                         <Link

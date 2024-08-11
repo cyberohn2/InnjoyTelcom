@@ -56,9 +56,9 @@ const Reviews = () => {
     }, []); // Empty dependency array means this effect runs once on mount
 
     return (
-                <div className="max-w-[1440px] mx-auto px-8 relative">
-                    <h1 className="text-xl font-bold mb-4">Here's What Our Customers Are Saying About Us</h1>
-                            <div className="flex flex-col md:flex-row">
+                <div className="max-w-[1440px] mx-auto pt-8  relative">
+                    <h1 className="text-xl font-bold mb-4 px-4 sm:px-8">What our Customers have to say</h1>
+                            <div className="flex flex-col md:flex-row px-4 sm:px-8 relative">
                                 {/* Reviews List */}
                                 <div className="flex-1 md:w-1/2  p-4">
                     <div className="space-y-4">

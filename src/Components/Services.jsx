@@ -45,7 +45,7 @@ const ServiceItem = ({ image, title, desc }) => {
 
 const Services = () => {
     return (
-        <div id="service" className="text-[#111d15] pt-[113px] pb-[56px] max-w-[1440px] mx-auto px-8">
+        <div id="service" className="text-[#111d15] pt-[113px] pb-[56px] max-w-[1440px] mx-auto px-4 sm:px-8">
             <div className="flex items-center gap-2 justify-between">
                 <h2 className="sm:text-[33px] text-[24px] font-semibold max-w-[402px]">Our Services</h2>
                 <div className="max-w-[324.75px] text-right sm:text-left">
