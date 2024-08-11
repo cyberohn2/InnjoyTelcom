@@ -4,7 +4,7 @@ const UserForm = memo(({ index, user, handleChange, errors }) => {
     return (
         <div className="mb-[22px] flex flex-col gap-[22px]">
             <p className="text-lg font-semibold">New User</p>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-start">
                     <label className="mb-1 block text-gray-600 text-sm" htmlFor={`firstName-${index}`}>First Name</label>
                 <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3] ">
                     <input
@@ -18,7 +18,7 @@ const UserForm = memo(({ index, user, handleChange, errors }) => {
                 </div>
                 {errors.firstName && <p className="text-[#ff4545] text-sm font-semibold">{errors.firstName}</p>}
             </div>
-            <div className=" flex flex-col">
+            <div className=" flex flex-col items-start">
                     <label className="mb-1 block text-gray-600 text-sm" htmlFor={`lastName-${index}`}>Last Name</label>
                 <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3] ">
                     <input
@@ -32,7 +32,7 @@ const UserForm = memo(({ index, user, handleChange, errors }) => {
                 </div>
                 {errors.lastName && <p className="text-[#ff4545] text-sm font-semibold">{errors.lastName}</p>}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-start">
                     <label className="mb-1 block text-gray-600 text-sm" htmlFor={`phoneNumber-${index}`}>AIRTEL Phone Number</label>
                 <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3] ">
                     <input
@@ -46,7 +46,7 @@ const UserForm = memo(({ index, user, handleChange, errors }) => {
                 </div>
                 {errors.phoneNumber && <p className="text-[#ff4545] text-sm font-semibold">{errors.phoneNumber}</p>}
             </div>
-            <div className="flex flex-col">
+            <div className="flex flex-col items-start">
                     <label className="mb-1 block text-gray-600 text-sm" htmlFor={`nin-${index}`}>NIN Number</label>
                 <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3]">
                     <input
