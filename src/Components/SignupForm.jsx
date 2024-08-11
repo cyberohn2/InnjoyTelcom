@@ -85,7 +85,7 @@ const SignupForm = () => {
         firstName: "", 
         lastName: "", 
         phoneNumber: "", 
-        ninNumber: "",  
+        ninNumber: "", 
         utilityBill: null, 
         ninSlip: null 
     }]);
