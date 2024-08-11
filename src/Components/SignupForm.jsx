@@ -41,6 +41,18 @@ const UserForm = memo(({ index, user, handleChange, errors }) => {
                 {errors.phoneNumber && <p className="text-red-500 text-sm">{errors.phoneNumber}</p>}
             </div>
             <div className="p-[14px] rounded-[3px] bg-white border border-[#F3F3F3] flex flex-col">
+                <label className="mb-[9px] block" htmlFor={`ninNumber-${index}`}>NIN Number</label>
+                <input
+                    className="outline-none"
+                    name="ninNumber"
+                    id={`ninNumber-${index}`}
+                    type="text"
+                    value={user.ninNumber}
+                    onChange={(e) => handleChange(e, index)}
+                />
+                {errors.ninNumber && <p className="text-red-500 text-sm">{errors.ninNumber}</p>}
+            </div>
+            <div className="p-[14px] rounded-[3px] bg-white border border-[#F3F3F3] flex flex-col">
                 <label className="mb-[9px] block" htmlFor={`utilityBill-${index}`}>Utility Bill</label>
                 <input
                     className="outline-none"
@@ -73,6 +85,7 @@ const SignupForm = () => {
         firstName: "", 
         lastName: "", 
         phoneNumber: "", 
+        ninNumber: "",  
         utilityBill: null, 
         ninSlip: null 
     }]);
@@ -114,6 +127,7 @@ const SignupForm = () => {
             if (!user.firstName) userErrors.firstName = "First Name is required";
             if (!user.lastName) userErrors.lastName = "Last Name is required";
             if (!user.phoneNumber) userErrors.phoneNumber = "AIRTEL Phone Number is required";
+            if (!user.ninNumber) userErrors.ninNumber = "NIN Number is required"; // Added validation
             if (!user.utilityBill) userErrors.utilityBill = "Utility Bill is required";
             if (!user.ninSlip) userErrors.ninSlip = "NIN Slip is required";
             return userErrors;
@@ -126,13 +140,32 @@ const SignupForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            // Form is valid, handle form submission here
-            console.log("Form submitted successfully", formData);
+            const formDataToSend = new FormData();
+            formData.forEach((user, index) => {
+                formDataToSend.append(`user[${index}].firstName`, user.firstName);
+                formDataToSend.append(`user[${index}].lastName`, user.lastName);
+                formDataToSend.append(`user[${index}].phoneNumber`, user.phoneNumber);
+                formDataToSend.append(`user[${index}].ninNumber`, user.ninNumber);  // Added ninNumber
+                if (user.utilityBill) {
+                    formDataToSend.append(`user[${index}].utilityBill`, user.utilityBill);
+                }
+                if (user.ninSlip) {
+                    formDataToSend.append(`user[${index}].ninSlip`, user.ninSlip);
+                }
+            });
+
+            fetch('innjoy-signup-production.up.railway.app/submit-form', {
+                method: 'POST',
+                body: formDataToSend,
+            })
+            .then(response => response.json())
+            .then(data => console.log('Success:', data))
+            .catch(error => console.error('Error:', error));
         }
     };
 
     const addUser = () => {
-        setFormData([...formData, { firstName: "", lastName: "", phoneNumber: "", utilityBill: null, ninSlip: null }]);
+        setFormData([...formData, { firstName: "", lastName: "", phoneNumber: "", ninNumber: "", utilityBill: null, ninSlip: null }]);
         setErrors([...errors, {}]);
     };
 
@@ -144,35 +177,35 @@ const SignupForm = () => {
                     Airtel Lines and Details. <b>Phone Number</b>, <b>First Name</b>, <b>Last Name</b> and <b>NIN</b> of each user of the bonanza calls must be the same as captured by Airtel in their system during SIM registration.
                 </p>
             </div>
-            <div className="max-w-[550px]">
-                <div className="mb-[30px]">
-                    <h2 className="text-[27px] font-semibold mb-[12px]">PILOT ACCOUNT HOLDER'S DETAILS</h2>
-                </div>
-                <form onSubmit={handleSubmit}>
-                    {formData.map((user, index) => (
-                        <UserForm
-                            key={index}
-                            index={index}
-                            user={user}
-                            handleChange={handleChange}
-                            errors={errors[index] || {}}
+                <div className="max-w-[550px]">
+                    <div className="mb-[30px]">
+                        <h2 className="text-[27px] font-semibold mb-[12px]">PILOT ACCOUNT HOLDER'S DETAILS</h2>
+                    </div>
+                    <form onSubmit={handleSubmit}>
+                        {formData.map((user, index) => (
+                            <UserForm
+                                key={index}
+                                index={index}
+                                user={user}
+                                handleChange={handleChange}
+                                errors={errors[index] || {}}
+                            />
+                        ))}
+                        <button
+                            type="button"
+                            onClick={addUser}
+                            className="py-[9px] px-[18px] rounded-[4.5px] bg-[#36B864] hover:bg-[#111D15] text-white cursor-pointer mb-4 mr-4"
+                        >
+                            Add Another Number
+                        </button>
+                        <input
+                            className="py-[9px] px-[18px] rounded-[4.5px] bg-[#36B864] hover:bg-[#111D15] text-white cursor-pointer"
+                            type="submit"
+                            value="Submit"
                         />
-                    ))}
-                    <button
-                        type="button"
-                        onClick={addUser}
-                        className="py-[9px] px-[18px] rounded-[4.5px] bg-[#36B864] hover:bg-[#111D15] text-white cursor-pointer mb-4 mr-4"
-                    >
-                        Add Another Number
-                    </button>
-                    <input
-                        className="py-[9px] px-[18px] rounded-[4.5px] bg-[#36B864] hover:bg-[#111D15] text-white cursor-pointer"
-                        type="submit"
-                        value="Submit"
-                    />
-                </form>
+                    </form>
+                </div>
             </div>
-        </div>
     );
 };
 
