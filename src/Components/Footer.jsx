@@ -17,6 +17,7 @@ const Footer = () =>{
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="/contact-us">Contact</Link></li>
                             <li><Link to="/sign-up">Sign Up</Link></li>
+                            <li><Link to="/our-reviews">Our Reviews</Link></li>
                         </ul>
                     </div>
                     <div className="max-w-[218.25px] text-center sm:text-left">

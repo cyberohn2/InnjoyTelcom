@@ -56,11 +56,11 @@ const Reviews = () => {
     }, []); // Empty dependency array means this effect runs once on mount
 
     return (
-                <div className="max-w-[1440px] mx-auto px-8">
+                <div className="max-w-[1440px] mx-auto px-8 relative">
                     <h1 className="text-xl font-bold mb-4">Here's What Our Customers Are Saying About Us</h1>
                             <div className="flex flex-col md:flex-row">
                                 {/* Reviews List */}
-                                <div className="flex-1 md:w-1/2 overflow-auto max-h-screen p-4">
+                                <div className="flex-1 md:w-1/2  p-4">
                     <div className="space-y-4">
                         {reviews.length > 0 ? (
                             reviews.map((review) => (
@@ -72,13 +72,13 @@ const Reviews = () => {
                                 />
                             ))
                         ) : (
-                            <p>No reviews available</p>
+                            <p>Loading Reviews ...</p>
                         )}
                     </div>
                                 </div>
                     
                                 {/* Review Form */}
-                                <div className="basis-[40%] p-4">
+                                <div className="basis-[40%] p-4  sticky top-0">
                     <h1 className="text-xl font-bold mb-4">Write a Review</h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="mb-4">

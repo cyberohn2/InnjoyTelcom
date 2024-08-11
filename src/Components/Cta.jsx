@@ -50,7 +50,7 @@ const Cta = () => {
     }, [isVisible]);
 
     return (
-        <section ref={ctaSectionRef} className="py-20 text-center bg-white">
+        <section ref={ctaSectionRef} className="py-20 text-center bg-white max-w-[1440px] mx-auto">
             <h2 className="font-semibold sm:font-bold text-[2rem] leading-tight mb-12 max-w-[80%] mx-auto">
             Contact us today to learn more about our services and take your remote work to the next level!
             </h2>

@@ -12,9 +12,9 @@ const About = () =>{
                 <div className="py-[6.875rem] max-w-[1440px] mx-auto">
                     <div className="hero-content mr-auto max-w-[450px]">
                         <div className="mb-[30px]">
-                            <h1 className="font-bold sm:text-[39px] text-[29px] mb-[18px]">InnJoy Telecom's Reliable Telecommution Solutions
+                            <h1 className="font-bold sm:text-[39px] text-[29px] mb-[18px]">InnJoy Telcom's Reliable Telecommunication Solutions
                             </h1>
-                            <p className="text-[13.5px] text-[#666666]">Innjoy Telecom understands the importance of flexibility and reliability in today's remote work environment. Our telecommution services are designed to help you stay connected and productive from anywhere, at any time.</p>
+                            <p className="text-[13.5px] text-[#666666]">Innjoy Telcom understands the importance of flexibility and reliability in today's remote work environment. Our telecommunication services are designed to help you stay connected and productive from anywhere, at any time.</p>
                         </div>
                         <div className="flex items-center gap-[19px]">
                             <PryCtaBtn link="/sign-up" text="Sign Up"/>
@@ -22,9 +22,9 @@ const About = () =>{
                     </div>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-8">
+            <div className="grid sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-8 py-10">
                 <div>
-                    <h3 className="mb-4 font-semibold text-lg">Key Features</h3>
+                    <h3 className="mb-4 font-semibold text-xl">Key Features</h3>
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px] ">
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />
@@ -49,7 +49,7 @@ const About = () =>{
                     </div>
                 </div>
                 <div>
-                    <h3 className="mb-4 font-semibold text-lg">Benefits</h3>
+                    <h3 className="mb-4 font-semibold text-xl">Benefits</h3>
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px]">
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />

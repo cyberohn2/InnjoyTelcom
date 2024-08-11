@@ -42,7 +42,7 @@ const Testimonials = () => {
     return (
         <div className="bg-white">
             <div className='max-w-[1440px] mx-auto px-8 py-[56px] flex flex-col sm:items-start sm:flex-row justify-between gap-8'>
-                <div className="w-[375px]">
+                <div className="max-w-[375px]">
                     <h2 className="text-[33px] font-semibold mb-[18px]">Feedback About Their Experience With Us</h2>
                     <p className="text-[12px] text-[#666666] mb-[27px]">Read testimonials from our satisfied clients. See how our services have made a difference in their lives.</p>
                     <div className="flex items-center gap-[9px]">

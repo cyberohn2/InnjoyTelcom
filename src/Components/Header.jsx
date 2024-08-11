@@ -75,7 +75,7 @@ const Header = () => {
             >
                 <div className="flex flex-col items-end p-6">
                     <ul className="flex flex-col items-start w-full gap-8 text-lg mb-8">
-                        {["Home", "About", "Contact Us"].map((item, index) => (
+                        {["Home", "About", "Contact Us", "Our Reviews"].map((item, index) => (
                             <li className="border-b w-full" key={index}>
                                 <Link
                                     to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
