@@ -32,7 +32,7 @@ const Contact = () => {
         const formErrors = validate(); 
     
         if (Object.keys(formErrors).length === 0) {
-            const waLink = `https://wa.me/2349010817543?text=Hi+I'm+${formData.name}%0A${encodeURIComponent(formData.message)}`;
+            const waLink = `https://wa.me/2349076612310?text=Hi+I'm+${formData.name}%0A${encodeURIComponent(formData.message)}`;
             
             console.log("Form submitted successfully", formData);
             window.location.href = waLink; 
