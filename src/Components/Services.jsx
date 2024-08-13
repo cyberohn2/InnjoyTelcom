@@ -36,9 +36,9 @@ const ServiceItem = ({ image, title, desc }) => {
                 <h3 className="text-[18px] font-semibold mb-[12px]">{title}</h3>
                 <p className="text-[12px] text-[#666666]">{desc}</p>
             </div>
-            <button className="border border-black rounded-[4.5px] px-[15px] py-2 text-[12px] hover:bg-[#3a40d4] hover:text-white hover:border-white">
-                <Link to="/sign-up">Sign Up <img loading="lazy" src={ArrowSVG} alt="" className="w-[15px] aspect-square inline" /></Link>
-            </button>
+            {/* <button className="border border-black rounded-[4.5px] px-[15px] py-2 text-[12px] hover:bg-[#3a40d4] hover:text-white hover:border-white">
+                <Link to="/sign-up-now">Sign Up Now <img loading="lazy" src={ArrowSVG} alt="" className="w-[15px] aspect-square inline" /></Link>
+            </button> */}
         </div>
     );
 };

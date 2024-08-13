@@ -17,26 +17,22 @@ const About = () =>{
                             <p className="text-[13.5px] text-[#666666]">Innjoy Telcom understands the importance of flexibility and reliability in today's remote work environment. Our telecommunication services are designed to help you stay connected and productive from anywhere, at any time.</p>
                         </div>
                         <div className="flex items-center gap-[19px]">
-                            <PryCtaBtn link="/sign-up" text="Sign Up"/>
+                            <PryCtaBtn link="/sign-up-now" text="Sign Up Now"/>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="grid sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-4 sm:px-8 py-10">
+            <div className="grid grid-cols-1 lg:grid-cols-3 sm:grid-cols-2 gap-4 max-w-[1440px] mx-auto px-4 sm:px-8 py-10">
                 <div>
                     <h3 className="mb-4 font-semibold text-xl">Key Features</h3>
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px] ">
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />
-                            <p className="text-[12px] font-semibold">High-speed internet connectivity</p>
+                            <p className="text-[12px] font-semibold">Uninterrupted calls</p>
                         </div>
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />
                             <p className="text-[12px] font-semibold">Crystal-clear voice and conferencing</p>
-                        </div>
-                        <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
-                            <img loading="lazy"src={check} alt="" />
-                            <p className="text-[12px] font-semibold">Secure and reliable data transfer</p>
                         </div>
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />
@@ -48,7 +44,7 @@ const About = () =>{
                         </div>
                     </div>
                 </div>
-                <div>
+                <div className="sm:col-start-2 lg:col-start-3">
                     <h3 className="mb-4 font-semibold text-xl">Benefits</h3>
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px]">
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">

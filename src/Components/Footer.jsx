@@ -16,17 +16,17 @@ const Footer = () =>{
                         <ul className="flex gap-[18px] flex-col sm:items-start text-[12px] font-semibold">
                             <li><Link to="/about">About Us</Link></li>
                             <li><Link to="/contact-us">Contact</Link></li>
-                            <li><Link to="/sign-up">Sign Up</Link></li>
+                            <li><Link to="/sign-up-now">Sign Up Now</Link></li>
                             <li><Link to="/our-reviews">Our Reviews</Link></li>
                         </ul>
                     </div>
                     <div className="max-w-[218.25px] text-center sm:text-left">
                         <h3 className="mb-[20px] text-[15px] font-bold">Join Us And Achieve Business Goal</h3>
-                        <PryCtaBtn link="/sign-up" text="Join Us" />
+                        <PryCtaBtn link="/sign-up-now" text="Join Us" />
                     </div>
                 </div>
                 <div className="divider border border-[83A790] my-[30px]"></div>
-                <p className="text-center">2024 “InnJoy Telcom” All Rights Received</p>
+                <p className="text-center">Powered By Innjoy Experience</p>
             </div>
         </footer>
     )
