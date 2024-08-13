@@ -6,6 +6,7 @@ import SignUp from "./Pages/SignUp"
 import Header from "./Components/Header"
 import Footer from "./Components/Footer"
 import Reviews from "./Pages/Reviews"
+import ScrollToTop from "./Components/ScrollToTop"
 
 function App() {
 
@@ -13,6 +14,7 @@ function App() {
     <div className="bg-[#dce3f1] font-veitnam">
       <Router >
         <Header />
+        <ScrollToTop /> 
         <Routes>
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/about" element={<About />}></Route>
