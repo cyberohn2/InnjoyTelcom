@@ -95,95 +95,107 @@ const UserForm = memo(({ user, handleChange, errors }) => {
 });
 
 const SignupForm = () => {
-    const [formData, setFormData] = useState({ 
-        firstName: "", 
-        lastName: "", 
-        phoneNumber: "", 
-        nin: "",  
-        utilityBill: null, 
-        ninSlip: null 
-    });
+    const [formData, setFormData] = useState([
+        { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Pilot Account
+        { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Phone 2
+        { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Phone 3 (Optional)
+        { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Phone 4 (Optional)
+        { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Phone 5 (Optional)
+    ]);
 
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState([
+        {}, {}, {}, {}, {}
+    ]);  // Initialized as an array of empty objects
+
     const [message, setMessage] = useState(""); 
     const [messageColor, setMessageColor] = useState(""); 
 
-    const handleChange = (e) => {
+    const handleChange = (e, index) => {
         const { name, value, files } = e.target;
-        const newFormData = { ...formData };
+        const newFormData = [...formData];
+        const newErrors = [...errors];
 
         if (files) {
             const file = files[0];
             const validTypes = ["image/jpeg", "image/jpg", "image/png", "application/pdf"];
 
             if (file && !validTypes.includes(file.type)) {
-                setErrors(prevErrors => ({
-                    ...prevErrors,
+                newErrors[index] = {
+                    ...newErrors[index],
                     [name]: "Invalid file type. Only JPG, PNG, and PDF files are allowed.",
-                }));
-                newFormData[name] = null;
+                };
+                newFormData[index][name] = null;
             } else {
-                setErrors(prevErrors => ({
-                    ...prevErrors,
-                    [name]: null,
-                }));
-                newFormData[name] = file;
+                newErrors[index][name] = null;
+                newFormData[index][name] = file;
             }
         } else {
-            newFormData[name] = value;
+            newFormData[index][name] = value;
         }
 
         setFormData(newFormData);
+        setErrors(newErrors);
     };
 
     const validate = () => {
-        const userErrors = {};
-        if (!formData.firstName) userErrors.firstName = "First Name is required";
-        if (!formData.lastName) userErrors.lastName = "Last Name is required";
-        if (!formData.phoneNumber) userErrors.phoneNumber = "AIRTEL Phone Number is required";
-        if (!formData.nin) userErrors.nin = "NIN Number is required";
-        if (!formData.utilityBill) userErrors.utilityBill = "Utility Bill is required";
-        if (!formData.ninSlip) userErrors.ninSlip = "NIN Slip is required";
+        const newErrors = formData.map(user => {
+            const userErrors = {};
+            if (!user.firstName) userErrors.firstName = "First Name is required";
+            if (!user.lastName) userErrors.lastName = "Last Name is required";
+            if (!user.phoneNumber) userErrors.phoneNumber = "AIRTEL Phone Number is required";
+            if (!user.nin) userErrors.nin = "NIN Number is required";
+            if (!user.utilityBill) userErrors.utilityBill = "Utility Bill is required";
+            if (!user.ninSlip) userErrors.ninSlip = "NIN Slip is required";
+            return userErrors;
+        });
 
-        setErrors(userErrors);
-        return Object.keys(userErrors).length === 0;
+        setErrors(newErrors);
+        return newErrors.every(userErrors => Object.keys(userErrors).length === 0);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (validate()) {
-            const formDataToSend = new FormData();
-            Object.keys(formData).forEach(key => {
-                formDataToSend.append(key, formData[key]);
-            });
+            formData.forEach(user => {
+                const formDataToSend = new FormData();
+                Object.keys(user).forEach(key => {
+                    formDataToSend.append(key, user[key]);
+                });
 
-            fetch('https://innjoy-signup-production.up.railway.app/submit-form', {
-                method: 'POST',
-                body: formDataToSend,
-            })
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Failed to submit form");
-                }
-                return response.json();
-            })
-            .then(data => {
-                console.log('Success:', data);
-                setMessage("You have successfully registered, you'll be contacted shortly.");
-                setMessageColor("text-green-500");
-                setFormData({ firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                setMessage("There was an error submitting the form. Please try again.");
-                setMessageColor("text-red-500 font-bold");
+                fetch('https://innjoy-signup-production.up.railway.app/submit-form', {
+                    method: 'POST',
+                    body: formDataToSend,
+                })
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Failed to submit form");
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Success:', data);
+                    setMessage("You have successfully registered, you'll be contacted shortly.");
+                    setMessageColor("text-green-500");
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    setMessage("There was an error submitting the form. Please try again.");
+                    setMessageColor("text-red-500 font-bold");
+                });
             });
+            setFormData([
+                { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
+                { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
+                { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
+                { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
+                { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
+            ]);
         }
     };
 
     return (
         <div id="contact" className="py-[56px] flex flex-col sm:flex-row-reverse sm:items-start justify-between gap-4 max-w-[1080px] mx-auto px-8 relative">
-            <div className="basis-[40%] sticky top-32">
+            <div className="basis-[40%] sm:sticky top-32">
                 <h2 className="font-bold text-[2.5rem] leading-tight max-w-[400px]">Join the CALL BONANZA of InnJoy Telcom</h2>
                 <p className="text-[12px] text-[#666666] max-w-[350px]">
                     Airtel Lines and Details. <b>Phone Number</b>, <b>First Name</b>, <b>Last Name</b> and <b>NIN</b> of each user of the bonanza calls must be the same as captured by Airtel in their system during SIM registration.
@@ -194,9 +206,9 @@ const SignupForm = () => {
                 <form onSubmit={handleSubmit}>
                     <h3 className="mb-4 font-semibold text-xl">PILOT ACCOUNT HOLDER'S DETAILS</h3>
                     <UserForm 
-                        user={formData} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        user={formData[0]} 
+                        handleChange={(e) => handleChange(e, 0)} 
+                        errors={errors[0]}  // Updated to pass the correct errors
                     />
                     <h3 className="mb-4 font-semibold text-xl">Secondary Airtel Lines and Details</h3>
                     <p className="text-[12px] text-[#666666] max-w-[350px]">
@@ -204,27 +216,27 @@ const SignupForm = () => {
                     </p>
                     <h3 className="mb-4 font-semibold text-lg">Phone 2</h3>
                     <UserForm 
-                        user={formData} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        user={formData[1]} 
+                        handleChange={(e) => handleChange(e, 1)} 
+                        errors={errors[1]}  // Updated to pass the correct errors
                     />
                     <h3 className="mb-4 font-semibold text-lg">Phone 3 (Optional)</h3>
                     <UserForm 
-                        user={formData} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        user={formData[2]} 
+                        handleChange={(e) => handleChange(e, 2)} 
+                        errors={errors[2]}  // Updated to pass the correct errors
                     />
                     <h3 className="mb-4 font-semibold text-lg">Phone 4 (Optional)</h3>
                     <UserForm 
-                        user={formData} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        user={formData[3]} 
+                        handleChange={(e) => handleChange(e, 3)} 
+                        errors={errors[3]}  // Updated to pass the correct errors
                     />
                     <h3 className="mb-4 font-semibold text-lg">Phone 5 (Optional)</h3>
                     <UserForm 
-                        user={formData} 
-                        handleChange={handleChange} 
-                        errors={errors} 
+                        user={formData[4]} 
+                        handleChange={(e) => handleChange(e, 4)} 
+                        errors={errors[4]}  // Updated to pass the correct errors
                     />
                     <button 
                         type="submit" 
@@ -240,3 +252,4 @@ const SignupForm = () => {
 };
 
 export default SignupForm;
+

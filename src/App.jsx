@@ -11,7 +11,7 @@ import ScrollToTop from "./Components/ScrollToTop"
 function App() {
 
   return (
-    <div className="bg-[#dce3f1] font-veitnam">
+    <div className="bg-[#dce3f1] font-veitnam scroll-smooth">
       <Router >
         <Header />
         <ScrollToTop /> 
