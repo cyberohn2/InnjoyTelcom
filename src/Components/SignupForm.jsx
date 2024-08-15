@@ -94,7 +94,7 @@ const SignupForm = () => {
     
             console.log(Object.fromEntries(formDataToSend.entries())); // For debugging purposes
     
-            fetch('http://localhost:5000/submit-form', {
+            fetch('https://innjoy-signup-production.up.railway.app/submit-form', {
                 method: 'POST',
                 body: formDataToSend,
             })
