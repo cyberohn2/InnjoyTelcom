@@ -14,10 +14,11 @@ const Footer = () =>{
                     <div className="text-center sm:text-left">
                         <h4 className="mb-[27px] text-[15px] font-bold">Company</h4>
                         <ul className="flex gap-[18px] flex-col sm:items-start text-[12px] font-semibold">
-                            <li><Link to="/about">About Us</Link></li>
-                            <li><Link to="/contact-us">Contact</Link></li>
-                            <li><Link to="/sign-up-now">Sign Up Now</Link></li>
-                            <li><Link to="/our-reviews">Our Reviews</Link></li>
+                            <li><Link className="hover:text-blue-500" to="/about">About Us</Link></li>
+                            <li><Link className="hover:text-blue-500" to="/contact-us">Contact</Link></li>
+                            <li><Link className="hover:text-blue-500" to="/sign-up-now">Sign Up Now</Link></li>
+                            <li><Link className="hover:text-blue-500" to="/sign-in">Add Number To Your Account</Link></li>
+                            <li><Link className="hover:text-blue-500" to="/our-reviews">Our Reviews</Link></li>
                         </ul>
                     </div>
                     <div className="max-w-[218.25px] text-center sm:text-left">
