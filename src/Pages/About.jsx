@@ -17,7 +17,7 @@ const About = () =>{
                             <p className="text-[13.5px] text-[#666666]">Innjoy Telcom understands the importance of flexibility and reliability in today's remote work environment. Our telecommunication services are designed to help you stay connected and productive from anywhere, at any time.</p>
                         </div>
                         <div className="flex items-center gap-[19px]">
-                            <PryCtaBtn link="/sign-up-now" text="Sign Up Now"/>
+                            <PryCtaBtn link="/select-plan" text="Sign Up Now"/>
                         </div>
                     </div>
                 </div>
@@ -49,7 +49,7 @@ const About = () =>{
                     <div className=" grid grid-cols-1 gap-[12px] justify-between mb-[36px]">
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />
-                            <p className="text-[12px] font-semibold">Free SMS Available For All Plan</p>
+                            <p className="text-[12px] font-semibold">Free SMS Available For All Plans</p>
                         </div>
                         <div className="flex items-center p-[8px]  bg-[#F5F4F4] rounded-[3px] gap-[6px]">
                             <img loading="lazy"src={check} alt="" />

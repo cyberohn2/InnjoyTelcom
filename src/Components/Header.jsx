@@ -55,7 +55,7 @@ const Header = () => {
                     ))}
                 </ul>
                 <Link
-                    to="/sign-up-now"
+                    to="/select-plan"
                     className="hidden md:block bg-[#3a40d4] hover:shadow-lg rounded-[4.5px] px-6 py-2 text-white w-fit text-[12px] lg:text-[16px]"
                 >
                     Sign Up Now
@@ -86,7 +86,7 @@ const Header = () => {
                             </li>
                         ))}
                         <Link
-                            to="/sign-up-now"
+                            to="/select-plan"
                             className="bg-[#3a40d4] hover:bg-[#111D15] rounded-[4.5px] px-6 py-2 text-white text-lg"
                             onClick={toggleMobileMenu}
                         >

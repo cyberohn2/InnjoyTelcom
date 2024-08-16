@@ -69,7 +69,7 @@ const Cta = () => {
                 </div>
             </div>
             <div className="visme_d" data-title="Untitled Project" data-url="017v4ok0-untitled-project" data-domain="forms" data-full-page="false" data-min-height="500px" data-form-id="87263"></div><script src="https://static-bundles.visme.co/forms/vismeforms-embed.js"></script>
-            <PryCtaBtn link="/sign-up-now" text="Sign Up Now" />
+            <PryCtaBtn link="/select-plan" text="Sign Up Now" />
         </section>
     );
 };

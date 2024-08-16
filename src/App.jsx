@@ -8,6 +8,7 @@ import Footer from "./Components/Footer"
 import Reviews from "./Pages/Reviews"
 import ScrollToTop from "./Components/ScrollToTop"
 import SignIn from "./Pages/SignIn"
+import Pricing from "./Pages/Pricing"
 
 function App() {
 
@@ -20,9 +21,10 @@ function App() {
           <Route exact path="/" element={<Home />}></Route>
           <Route exact path="/about" element={<About />}></Route>
           <Route exact path="/contact-us" element={<Contact />}></Route>
-          <Route exact path="/sign-up-now" element={<SignUp />}></Route>
+          <Route exact path="/sign-up" element={<SignUp />}></Route>
           <Route exact path="/sign-in" element={<SignIn />}></Route>
           <Route exact path="/our-reviews" element={<Reviews />}></Route>
+          <Route exact path="/select-plan" element={<Pricing />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />

@@ -26,7 +26,7 @@ const Hero = () => {
                         Stay connected and productive with our robust and secure telecommunication services for Airtel users, designed to support your remote work needs.
                     </p>
                     <div className="flex flex-col sm:flex-row justify-center lg:justify-start items-stretch gap-[15px] lg:gap-[19px] animate-fade-in delay-400">
-                        <PryCtaBtn link="/sign-up-now" text='Sign Up Now' />
+                        <PryCtaBtn link="/select-plan" text='Sign Up Now' />
                         <SecCtaBtn link="/about" text='Learn More' />
                     </div>
                 </div>

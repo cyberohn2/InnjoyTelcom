@@ -6,7 +6,7 @@ const UserForm = memo(({ user, handleChange, errors }) => {
     return (
         <div className="mb-[22px]">
             <div className="mb-[22px] flex flex-col gap-[22px] border-b border-black py-2">
-                <h3 className=" font-semibold text-xl">Pilot Number Details</h3>
+                <h3 className="font-semibold text-xl">Pilot Number Details</h3>
                 <div className="flex flex-col items-start">
                     <label className="mb-1 block text-gray-600 text-sm" htmlFor="firstName">First Name</label>
                     <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3] w-full">

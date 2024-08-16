@@ -2,8 +2,14 @@ import { useState } from "react";
 import UserForm from "./UserForm";
 import OptionalNoForm from "./OptionalNoForm";
 import { Link } from "react-router-dom";
+import { useLocation } from 'react-router-dom';
 
 const SignupForm = () => {
+    const location = useLocation();
+    const chosedPackage = location.state
+    console.log(chosedPackage);
+    
+
     const [formData, setFormData] = useState([
         { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Pilot Account
         { firstName: "", lastName: "", phoneNumber: "", nin: "" }, // Phone 2 (Default Optional Number)
@@ -74,7 +80,7 @@ const SignupForm = () => {
         e.preventDefault();
         if (validate()) {
             const formDataToSend = new FormData();
-    
+            formDataToSend.append(formData.length, JSON.stringify(chosedPackage))
             // Collecting all users' data in the desired format
             formData.forEach((user, index) => {
                 let formatedData = {}
@@ -131,8 +137,8 @@ const SignupForm = () => {
             <div></div>
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
-                    <p>Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
-
+                    <h3 className=" font-semibold text-xl">{`Register for a ${chosedPackage.package} package`}</h3>
+                    <p className="text-[10px] text-gray-600">Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
                     {/* Render UserForm for the Pilot Account */}
                     <UserForm 
                         user={formData[0]} 
