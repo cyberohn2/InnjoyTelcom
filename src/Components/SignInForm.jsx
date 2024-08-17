@@ -76,6 +76,10 @@ const SignInForm = () => {
             .then(() => {
                 setMessage("You have successfully registered, you'll be contacted shortly.");
                 setMessageColor("text-green-500");
+                setFormData([
+                    { firstName: "", lastName: "", phoneNumber: "", nin: "" },
+                    { firstName: "", lastName: "", phoneNumber: "", nin: "" },
+                ]);
             })
             .catch(() => {
                 setMessage("There was an error submitting the form. Please try again.");
