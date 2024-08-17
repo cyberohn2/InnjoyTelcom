@@ -135,8 +135,9 @@ const SignupForm = () => {
             <div></div>
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
-                    <h3 className="font-semibold text-xl">Register for a {chosedPackage.package} package <Link className="underline text-blue-500" to="/select-plan">Change Plan</Link></h3>
-                    <p className="text-[10px] text-gray-600">Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
+                    <h3 className="font-semibold text-xl mb-4">Register for a {chosedPackage.package} package <Link className="underline text-blue-500" to="/select-plan">Change Plan</Link></h3>
+                    <p className="text-sm font-semibold text-gray-600 mb-6">Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
+                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US ON WHATSAPP FOR PAYMENT AFTER REGISTERING</a></p>
 
                     <UserForm 
                         user={formData[0]} 

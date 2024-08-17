@@ -1,20 +1,21 @@
 import Cta from "../Components/Cta"
 import PryCtaBtn from "../Components/PryCtaBtn"
 import SecCtaBtn from "../Components/SecCtaBtn"
-import AboutHeroImg from "/about-hero.jpg"
+import AboutHeroImg from "/about-hero.png"
+import AboutHeroImgMobile from "/about-hero-mobile.png"
 import check from "/check.svg"
 
 
 const About = () =>{
     return(
         <div className=" ">
-            <div style={{backgroundImage: `url(${AboutHeroImg})`, backgroundSize: 'cover', backgroundPosition: 'center',}} className="px-8 bg-no-repeat ">
+            <div style={{backgroundImage: `url(${AboutHeroImgMobile})`, backgroundSize: 'cover', backgroundPosition: 'center',}} className="px-8 bg-no-repeat md:bg-[url(/about-hero.png)] relative isolate before:absolute before:inset-0 before:bg-[#2525258f] before:-z-10">
                 <div className="py-[6.875rem] max-w-[1440px] mx-auto">
                     <div className="hero-content mr-auto max-w-[450px]">
                         <div className="mb-[30px]">
-                            <h1 className="font-bold sm:text-[39px] text-[29px] mb-[18px]">InnJoy Telcom's Reliable Telecommunication Solutions
+                            <h1 className="font-bold sm:text-[39px] text-[29px] mb-[18px] text-white">InnJoy Telcom's Reliable Telecommunication Solutions
                             </h1>
-                            <p className="text-[13.5px] text-[#666666]">Innjoy Telcom understands the importance of flexibility and reliability in today's remote work environment. Our telecommunication services are designed to help you stay connected and productive from anywhere, at any time.</p>
+                            <p className="text-[13.5px] text-gray-300">Innjoy Telcom understands the importance of flexibility and reliability in today's remote work environment. Our telecommunication services are designed to help you stay connected and productive from anywhere, at any time.</p>
                         </div>
                         <div className="flex items-center gap-[19px]">
                             <PryCtaBtn link="/select-plan" text="Sign Up Now"/>

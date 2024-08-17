@@ -6,6 +6,7 @@ import fbIcon from "/icon-facebook.svg"
 import IgIcon from "/icon-instagram.svg"
 import XIcon from "/icon-twitter.svg"
 import WhiteXIcon from "/icon-white-twitter.svg"
+import WhatsappIcon from "/whatsapp-icon.png"
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -41,7 +42,7 @@ const Contact = () => {
             setIsSubmitting(true);
             setMessage('');
 
-            fetch('http://localhost:5000/contact', {
+            fetch('https://innjoy-signup-production.up.railway.app/contact', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -78,7 +79,7 @@ const Contact = () => {
                         
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Call Us</h3>
-                            <p className="text-[12px] text-[#666666]">234 90 766 123 10</p>
+                            <p className="text-[12px] text-[#666666]"><a href="tel:+2349076612310">+234 907 661 2310</a></p>
                         </div>
                     </div>
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">
@@ -86,9 +87,10 @@ const Contact = () => {
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Connect with Us</h3>
                             <div className="flex gap-6 items-center">
-                                <a href=""><img src={fbIcon} alt="" /></a>
-                                <a href=""><img src={IgIcon} alt="" /></a>
-                                <a href=""><img src={XIcon} alt="" /></a>
+                                <a target="_" href="https://m.facebook.com/profile.php?id=61563958125862&name=xhp_nt_fbaction_open_user"><img src={fbIcon} alt="" /></a>
+                                <a target="_" href="https://www.instagram.com/innjoytelcom/"><img src={IgIcon} alt="" /></a>
+                                <a target="_" href=""><img src={XIcon} alt="" /></a>
+                                <a target="_" href="https://wa.me/+2349076612310"><img width={20} src={WhatsappIcon} alt="" /></a>
                             </div>
                         </div>
                     </div>
@@ -96,7 +98,7 @@ const Contact = () => {
                         
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Email Now</h3>
-                            <p className="text-[12px] text-[#666666]">CustomerService@Innjoytelcom.com.ng</p>
+                            <p className="text-[12px] text-[#666666]"><a href="mailto:CustomerService@Innjoytelcom.com.ng">CustomerService@Innjoytelcom.com.ng</a></p>
                         </div>
                     </div>
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">

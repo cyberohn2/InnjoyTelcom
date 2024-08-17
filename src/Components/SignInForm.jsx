@@ -74,7 +74,7 @@ const SignInForm = () => {
                 return response.json();
             })
             .then(() => {
-                setMessage("You have successfully registered, you'll be contacted shortly.");
+                setMessage("Registration Successfull, contact us on whatsapp to make your payment.");
                 setMessageColor("text-green-500");
                 setFormData([
                     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
@@ -94,16 +94,16 @@ const SignInForm = () => {
     return (
         <div id="contact" className="py-[56px] flex flex-col sm:flex-row-reverse sm:items-start justify-between gap-4 max-w-[1080px] mx-auto px-8 relative">
             <div className="basis-[40%] sm:sticky top top-20">
-                <h2 className="font-bold text-[2.5rem] leading-tight max-w-[400px]">Add More Numbers To Your Existing Account</h2>
+                <h2 className="font-bold text-2xl sm:text-[2.5rem] leading-tight max-w-[400px]">Add More AIRTEL Lines To Your Existing Account</h2>
                 <p className="text-[12px] text-[#666666] max-w-[350px]">
-                    <b>Fill in details of the Existing Pilot Account and the details of the number you want to add to it.</b> Airtel Lines and Details. <b>Phone Number</b>, <b>First Name</b>, <b>Last Name</b> and <b>NIN</b> of each user of the bonanza calls must be the same as captured by Airtel in their system during SIM registration.
+                    Fill in details of the Existing Pilot Account and the details of the number you want to add to it. Phone Number, First Name, Last Name and NIN of each user of the bonanza calls must be the same as captured by Airtel in their system during SIM registration.
                 </p>
             </div>
             <div></div>
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
-                    <p className="text-[10px] text-gray-600">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
-                    
+                    <p className="text-sm font-semibold text-gray-600 mb-6">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
+                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US ON WHATSAPP FOR PAYMENT AFTER REGISTERING</a></p>
                     <OptionalNoForm 
                         title="Pilot Details To Add Number To"
                         user={formData[0]} 

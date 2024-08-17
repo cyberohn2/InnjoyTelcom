@@ -26,7 +26,7 @@ const Reviews = () => {
     // Function to add a review to the backend
     const addReview = async (review) => {
         try {
-            const response = await fetch('http://localhost:5000/submit-review', {
+            const response = await fetch('https://innjoy-signup-production.up.railway.app/submit-review', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
