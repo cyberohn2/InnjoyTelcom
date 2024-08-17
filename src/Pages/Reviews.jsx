@@ -7,6 +7,7 @@ const Reviews = () => {
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
     const [reviews, setReviews] = useState([]);
+    const [message, setMessage] = useState("")
 
     // Function to fetch reviews from the backend
     const fetchReviews = async () => {
@@ -25,7 +26,7 @@ const Reviews = () => {
     // Function to add a review to the backend
     const addReview = async (review) => {
         try {
-            const response = await fetch('https://innjoytelcom-backend-production.up.railway.app/reviews', {
+            const response = await fetch('http://localhost:5000/submit-review', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -34,12 +35,15 @@ const Reviews = () => {
             });
             if (!response.ok) {
                 throw new Error('Failed to submit review');
+            }else{
+                setMessage("Your Review has been submitted successfully!")
             }
             const newReview = await response.json();
             // Add the new review to the existing list of reviews
             setReviews([newReview, ...reviews]);
         } catch (error) {
             console.error('Error submitting review:', error);
+            setMessage(`Error while submitting the review ${error}`)
         }
     };
 
@@ -58,7 +62,7 @@ const Reviews = () => {
     return (
                 <div className="max-w-[1440px] mx-auto pt-8  relative">
                     <h1 className="text-xl font-bold mb-4 px-4 sm:px-8">What our Customers have to say</h1>
-                            <div className="flex flex-col md:flex-row px-4 sm:px-8 relative">
+                            <div className="flex flex-col items-start md:flex-row px-4 sm:px-8 relative">
                                 {/* Reviews List */}
                                 <div className="flex-1 md:w-1/2  p-4">
                     <div className="space-y-4">
@@ -78,7 +82,8 @@ const Reviews = () => {
                                 </div>
                     
                                 {/* Review Form */}
-                                <div className="basis-[40%] p-4  sticky top-0">
+                                <div className="basis-[40%] p-4  sticky top-20">
+                                    <p>{message}</p>
                     <h1 className="text-xl font-bold mb-4">Write a Review</h1>
                     <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="mb-4">

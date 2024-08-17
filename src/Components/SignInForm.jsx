@@ -2,19 +2,16 @@ import { useState } from "react";
 import OptionalNoForm from "./OptionalNoForm";
 import { Link } from "react-router-dom";
 
-
 const SignInForm = () => {
     const [formData, setFormData] = useState([
         { firstName: "", lastName: "", phoneNumber: "", nin: "" }, // Pilot Account
         { firstName: "", lastName: "", phoneNumber: "", nin: "" }, // Secondary Airtel Line (Default)
     ]);
 
-    const [errors, setErrors] = useState([
-        {}, {}  // Initialized as an array of empty objects corresponding to formData
-    ]);
-
+    const [errors, setErrors] = useState([{}, {}]); // Initialize errors array
     const [message, setMessage] = useState("");
     const [messageColor, setMessageColor] = useState("");
+    const [isSubmitting, setIsSubmitting] = useState(false); // State to handle submission status
 
     const handleChange = (e, index) => {
         const { name, value } = e.target;
@@ -37,30 +34,32 @@ const SignInForm = () => {
             if (!user.lastName) userErrors.lastName = "Last Name is required";
             if (!user.phoneNumber) userErrors.phoneNumber = "AIRTEL Phone Number is required";
             if (!user.nin) userErrors.nin = "NIN Number is required";
-    
+
             return userErrors;
         });
-    
+
         setErrors(newErrors);
-    
-        const isValidForm = newErrors.every((userErrors) => Object.keys(userErrors).length === 0);
-    
-        return isValidForm;
+
+        return newErrors.every((userErrors) => Object.keys(userErrors).length === 0);
     };
-    
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        if (isSubmitting) return; // Prevent multiple submissions
+
         if (validate()) {
+            setIsSubmitting(true); // Set submitting status
+            setMessage("Submitting, please wait...");
+            setMessageColor("text-blue-500");
+
             // Prepare data to send as JSON
             let formDataToSend = {};
-        
+
             // Append each user's data individually with correct keys
             formData.forEach((user, index) => {
-                formDataToSend[index] = user
+                formDataToSend[index] = user;
             });
-            console.log(JSON.stringify(formDataToSend))
-    
+
             fetch('https://innjoy-signup-production.up.railway.app/sign-in', {
                 method: 'POST',
                 headers: {
@@ -74,26 +73,19 @@ const SignInForm = () => {
                 }
                 return response.json();
             })
-            .then(data => {
-                console.log('Success:', data);
+            .then(() => {
                 setMessage("You have successfully registered, you'll be contacted shortly.");
                 setMessageColor("text-green-500");
             })
-            .catch(error => {
-                console.error('Error:', error);
+            .catch(() => {
                 setMessage("There was an error submitting the form. Please try again.");
                 setMessageColor("text-red-500 font-bold");
+            })
+            .finally(() => {
+                setIsSubmitting(false); // Reset submitting status
             });
-    
-            // Reset form data after successful submission
-            // setFormData([
-            //     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
-            //     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
-            // ]);
         }
     };
-    
-
 
     return (
         <div id="contact" className="py-[56px] flex flex-col sm:flex-row-reverse sm:items-start justify-between gap-4 max-w-[1080px] mx-auto px-8 relative">
@@ -106,8 +98,8 @@ const SignInForm = () => {
             <div></div>
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
-                <p className="text-[10px] text-gray-600">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
-                    {/* Render the first OptionalNoForm with title "Pilot Details To Add Number To" */}
+                    <p className="text-[10px] text-gray-600">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
+                    
                     <OptionalNoForm 
                         title="Pilot Details To Add Number To"
                         user={formData[0]} 
@@ -115,22 +107,21 @@ const SignInForm = () => {
                         errors={errors[0]}  
                     />
 
-                    {/* Render the secondary Airtel Line forms */}
                     {formData.slice(1).map((user, index) => (
                         <OptionalNoForm 
                             key={index + 1}
-                            title={`Secondary Airtel Lines and Details`}
+                            title="Secondary Airtel Lines and Details"
                             user={user} 
                             handleChange={(e) => handleChange(e, index + 1)} 
                             errors={errors[index + 1]}  
                         />
                     ))}
-                    
+
                     <div className="flex gap-2 mt-6">
                         <button onClick={handleAddNewNumber} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                             Add New Number
                         </button>
-                        <button type="submit" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
+                        <button type="submit" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600" disabled={isSubmitting}>
                             Submit
                         </button>
                     </div>
