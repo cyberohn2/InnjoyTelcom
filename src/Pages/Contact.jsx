@@ -1,11 +1,8 @@
 import { useState } from "react";
-import phoneIcon from "/phone-icon.svg";
-import mailIcon from "/mail-icon.svg";
-import locationIcon from "/location-icon.svg";
 import fbIcon from "/icon-facebook.svg"
 import IgIcon from "/icon-instagram.svg"
 import XIcon from "/icon-twitter.svg"
-import WhiteXIcon from "/icon-white-twitter.svg"
+import YTIcom from "/youtube.svg"
 import WhatsappIcon from "/whatsapp-icon.png"
 
 const Contact = () => {
@@ -89,8 +86,9 @@ const Contact = () => {
                             <div className="flex gap-6 items-center">
                                 <a target="_" href="https://m.facebook.com/profile.php?id=61563958125862&name=xhp_nt_fbaction_open_user"><img src={fbIcon} alt="" /></a>
                                 <a target="_" href="https://www.instagram.com/innjoytelcom/"><img src={IgIcon} alt="" /></a>
-                                <a target="_" href=""><img src={XIcon} alt="" /></a>
+                                <a target="_" href="https://x.com/InnjoyTelcom"><img src={XIcon} alt="" /></a>
                                 <a target="_" href="https://wa.me/+2349076612310"><img width={20} src={WhatsappIcon} alt="" /></a>
+                                <a target="_" href="https://youtube.com/@innjoytelcom?si=u1i0q6PWVwkqKRoi"><img width={20} src={YTIcom} alt="" /></a>
                             </div>
                         </div>
                     </div>
