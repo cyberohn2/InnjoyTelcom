@@ -93,7 +93,7 @@ const SignInForm = () => {
 
     return (
         <div id="contact" className="py-[56px] flex flex-col sm:flex-row-reverse sm:items-start justify-between gap-4 max-w-[1080px] mx-auto px-8 relative">
-            <div className="basis-[40%] sm:sticky top-32">
+            <div className="basis-[40%] sm:sticky top top-20">
                 <h2 className="font-bold text-[2.5rem] leading-tight max-w-[400px]">Add More Numbers To Your Existing Account</h2>
                 <p className="text-[12px] text-[#666666] max-w-[350px]">
                     <b>Fill in details of the Existing Pilot Account and the details of the number you want to add to it.</b> Airtel Lines and Details. <b>Phone Number</b>, <b>First Name</b>, <b>Last Name</b> and <b>NIN</b> of each user of the bonanza calls must be the same as captured by Airtel in their system during SIM registration.

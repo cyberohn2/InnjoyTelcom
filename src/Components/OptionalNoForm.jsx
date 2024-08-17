@@ -3,7 +3,7 @@ import {  memo } from "react";
 
 const OptionalNoForm = memo(({ title, user, handleChange, errors }) => {
     return (
-        <div className="mb-[22px] flex flex-col gap-[22px] border-b border-black py-2">
+        <div className="mb-[22px] flex flex-col gap-[22px] border-b border-gray-400 py-2">
             <div>
                 <h3 className="font-semibold text-xl">{title}</h3>
                 <p className="text-[12px] text-[#666666] max-w-[350px] ">

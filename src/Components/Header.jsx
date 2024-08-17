@@ -56,7 +56,7 @@ const Header = () => {
                 </ul>
                 <Link
                     to="/select-plan"
-                    className="hidden md:block bg-[#3a40d4] hover:shadow-lg rounded-[4.5px] px-6 py-2 text-white w-fit text-[12px] lg:text-[16px]"
+                    className="hidden md:block bg-[#3a40d4] hover:shadow-lg hover:bg-blue-500 rounded-[4.5px] px-6 py-2 text-white w-fit text-[12px] lg:text-[16px]"
                 >
                     Sign Up Now
                 </Link>
@@ -87,7 +87,7 @@ const Header = () => {
                         ))}
                         <Link
                             to="/select-plan"
-                            className="bg-[#3a40d4] hover:bg-[#111D15] rounded-[4.5px] px-6 py-2 text-white text-lg"
+                            className="bg-[#3a40d4] hover:bg-[#111D15] rounded-[4.5px] px-4 sm:px-6 py-2 text-white text-sm sm:text-lg"
                             onClick={toggleMobileMenu}
                         >
                             Sign Up Now
