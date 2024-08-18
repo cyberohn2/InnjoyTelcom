@@ -1,12 +1,14 @@
+import { useEffect } from "react"
 import Cta from "../Components/Cta"
 import PryCtaBtn from "../Components/PryCtaBtn"
-import SecCtaBtn from "../Components/SecCtaBtn"
-import AboutHeroImg from "/about-hero.png"
 import AboutHeroImgMobile from "/about-hero-mobile.png"
 import check from "/check.svg"
 
 
 const About = () =>{
+    useEffect(() => {
+        document.title = "About Us - InnjoyTelcom"; 
+      }, []);
     return(
         <div className=" ">
             <div style={{backgroundImage: `url(${AboutHeroImgMobile})`, backgroundSize: 'cover', backgroundPosition: 'center',}} className="px-8 bg-no-repeat md:bg-[url(/about-hero.png)] relative isolate before:absolute before:inset-0 before:bg-[#2525258f] before:-z-10">

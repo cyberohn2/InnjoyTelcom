@@ -2,6 +2,9 @@ import phoneIcon from "/phone-icon.svg"
 import whatsAppIcon from "/whatsapp-icon.png"
 
 const HowToPay = () =>{
+    useEffect(() => {
+        document.title = "Innjoy - How To Pay"; 
+      }, []);
     return(
         <div className="py-[56px] flex flex-col items-center justify-between gap-4 max-w-[1080px] mx-auto px-8">
             <h1 className="mb-[30px] text-[30px] font-semibold text-center">Choose A Suitable Method To Contact Us For Payment</h1>

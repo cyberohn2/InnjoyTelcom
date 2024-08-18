@@ -4,6 +4,10 @@ import { useState, useEffect } from "react";
 import { useNavigate } from 'react-router-dom';
 
 const Reviews = () => {
+    useEffect(() => {
+        document.title = "Our Reviews - InnjoyTelcom"; 
+      }, []);
+
     const [name, setName] = useState('');
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');

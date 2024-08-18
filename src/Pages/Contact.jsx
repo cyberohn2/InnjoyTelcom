@@ -7,6 +7,10 @@ import WhatsappIcon from "/whatsapp-icon.png"
 import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
+    useEffect(() => {
+        document.title = "Contact Us - InnjoyTelcom"; 
+      }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         message: '',

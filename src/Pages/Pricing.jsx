@@ -6,7 +6,12 @@ const Pricing = () =>{
     const oneMonth = "₦3,000/3 Month"
     const sixMonth = "₦5,500/6 Months"
     const twelveMonth = "₦10,000/12 Months"
+
+    useEffect(() => {
+        document.title = "Select Plan - InnjoyTelcom"; 
+      }, []);
     return(
+        
         <div>
             <div className="py-[56.25px] isolate relative bg-[#3a40d4]">
                 <div className="text-white max-w-[1080px] mx-auto px-8">

@@ -2,6 +2,10 @@ import SignupForm from "../Components/SignupForm";
 
 
 const SignUp = () =>{
+    useEffect(() => {
+        document.title = "Create New Account - InnjoyTelcom"; 
+      }, []);
+
     return(
         <>
             <SignupForm />
