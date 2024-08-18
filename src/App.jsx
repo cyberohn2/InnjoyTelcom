@@ -11,6 +11,7 @@ import SignIn from "./Pages/SignIn"
 import Pricing from "./Pages/Pricing"
 import SuccessPage from "./Pages/SuccessPage"
 import HowToPay from "./Pages/HowToPay"
+import SendReview from "./Pages/SendReview"
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
           <Route exact path="/select-plan" element={<Pricing />}></Route>
           <Route exact path="/success-page" element={<SuccessPage />}></Route>
           <Route exact path="/how-to-pay" element={<HowToPay />}></Route>
+          <Route exact path="/send-review" element={<SendReview />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />
