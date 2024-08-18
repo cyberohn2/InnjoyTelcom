@@ -2,11 +2,13 @@ import {  memo } from "react";
 
 
 const OptionalNoForm = memo(({ index, title, user, handleChange, errors, handleDelete }) => {
+    console.log(index);
+    
     return (
         <div className="mb-[22px] flex flex-col gap-[22px] border-b border-gray-400 py-2">
             <div className="flex justify-between items-center">
                 <h3 className="font-semibold text-xl">{title}</h3>
-                {index == 2 && <button
+                {index > 1 && <button
                 onClick={handleDelete}
                 className="bg-red-500 text-white py-1 px-2 rounded hover:bg-red-600"
             >

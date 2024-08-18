@@ -4,12 +4,15 @@ import IgIcon from "/icon-instagram.svg"
 import XIcon from "/icon-twitter.svg"
 import YTIcom from "/youtube.svg"
 import WhatsappIcon from "/whatsapp-icon.png"
+import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
     const [formData, setFormData] = useState({
         name: '',
         message: '',
     });
+
+    const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -57,7 +60,7 @@ const Contact = () => {
                     setMessage(data.message);
                     setIsSubmitting(false);
                     setFormData({ name: '', message: '' }); // Reset form data after submission
-                    e.target.style.display = "none"
+                    navigate("/success-page", { state: { message: 'Message Sent Successfully'} })
                 })
                 .catch((error) => {
                     console.error('Error:', error);

@@ -9,6 +9,8 @@ import Reviews from "./Pages/Reviews"
 import ScrollToTop from "./Components/ScrollToTop"
 import SignIn from "./Pages/SignIn"
 import Pricing from "./Pages/Pricing"
+import SuccessPage from "./Pages/SuccessPage"
+import HowToPay from "./Pages/HowToPay"
 
 function App() {
 
@@ -25,6 +27,8 @@ function App() {
           <Route exact path="/sign-in" element={<SignIn />}></Route>
           <Route exact path="/our-reviews" element={<Reviews />}></Route>
           <Route exact path="/select-plan" element={<Pricing />}></Route>
+          <Route exact path="/success-page" element={<SuccessPage />}></Route>
+          <Route exact path="/how-to-pay" element={<HowToPay />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />

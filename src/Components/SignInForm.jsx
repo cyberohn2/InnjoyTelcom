@@ -103,7 +103,7 @@ const SignInForm = () => {
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
                     <p className="text-sm font-semibold text-gray-600 mb-6">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
-                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US FOR PAYMENT AFTER REGISTERING</a></p>
+                    <p><Link className="text-green-500 underline font-bold" to="/how-to-pay" >CONTACT US FOR PAYMENT AFTER REGISTERING</Link></p>
                     <OptionalNoForm 
                         title="Pilot Details To Add Number To"
                         user={formData[0]} 
@@ -114,6 +114,7 @@ const SignInForm = () => {
                     {formData.slice(1).map((user, index) => (
                         <OptionalNoForm 
                             key={index + 1}
+                            index={index +1}
                             title="Secondary Airtel Lines and Details"
                             user={user} 
                             handleChange={(e) => handleChange(e, index + 1)} 

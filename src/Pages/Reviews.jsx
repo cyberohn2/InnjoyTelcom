@@ -1,6 +1,7 @@
 import ReviewItem from "../Components/ReviewItem";
 import Cta from "../Components/Cta"
 import { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 
 const Reviews = () => {
     const [name, setName] = useState('');
@@ -8,6 +9,9 @@ const Reviews = () => {
     const [content, setContent] = useState('');
     const [reviews, setReviews] = useState([]);
     const [message, setMessage] = useState("")
+
+    const navigate = useNavigate();
+
 
     // Function to fetch reviews from the backend
     const fetchReviews = async () => {
@@ -37,7 +41,7 @@ const Reviews = () => {
                 throw new Error('Failed to submit review');
             }else{
                 setMessage("Review Successfully Transmitted!")
-                document.getElementById('reviewForm').style.display = "none"
+                navigate("/success-page", { state: { message: 'Review Successfully Transmitted!'} })
             }
         } catch (error) {
             console.error('Error submitting review:', error);
@@ -82,7 +86,7 @@ const Reviews = () => {
                                 {/* Review Form */}
                                 <div className="basis-[40%] p-4  sticky top-20">
                                     <p>{message}</p>
-                    <form id="reviewForm" onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit} className="space-y-4">
                     <h1 className="text-xl font-bold mb-4">Write a Review</h1>
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700">Name</label>

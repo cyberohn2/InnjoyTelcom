@@ -1,9 +1,17 @@
-import { useState, memo } from "react";
+import { useState, useEffect, memo } from "react";
 
 const UserForm = memo(({ user, handleChange, errors }) => {
   const [selectedFiles, setSelectedFiles] = useState({
     utilityBill: null,
     ninSlip: null,
+  });
+  const [uploadProgress, setUploadProgress] = useState({
+    utilityBill: 0,
+    ninSlip: 0,
+  });
+  const [uploadSuccess, setUploadSuccess] = useState({
+    utilityBill: false,
+    ninSlip: false,
   });
 
   const handleFileChange = (e) => {
@@ -17,6 +25,7 @@ const UserForm = memo(({ user, handleChange, errors }) => {
           ...prevFiles,
           [name]: reader.result,
         }));
+        simulateUpload(name);
       };
       reader.readAsDataURL(file);
     } else {
@@ -27,6 +36,30 @@ const UserForm = memo(({ user, handleChange, errors }) => {
     }
 
     handleChange(e);
+  };
+
+  const simulateUpload = (fileName) => {
+    let progress = 0;
+    const interval = setInterval(() => {
+      progress += 10;
+      setUploadProgress((prevProgress) => ({
+        ...prevProgress,
+        [fileName]: progress,
+      }));
+      if (progress >= 100) {
+        clearInterval(interval);
+        setUploadSuccess((prevSuccess) => ({
+          ...prevSuccess,
+          [fileName]: true,
+        }));
+        setTimeout(() => {
+          setUploadSuccess((prevSuccess) => ({
+            ...prevSuccess,
+            [fileName]: false,
+          }));
+        }, 3000);
+      }
+    }, 100);
   };
 
   return (
@@ -118,16 +151,23 @@ const UserForm = memo(({ user, handleChange, errors }) => {
             <p className="text-[#ff4545] text-sm font-semibold">{errors.nin}</p>
           )}
         </div>
-
+        
         <div className="flex gap-4">
           <div className="flex flex-col">
             <div className="flex gap-2 items-center">
-              <label
-                className="relative mb-[9px] block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-                htmlFor="utilityBill"
-              >
-                Utility Bill
-              </label>
+              <div>
+                  <label
+                    className="relative mb-[9px] block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                    htmlFor="utilityBill"
+                  >
+                    Utility Bill
+                  </label>
+                  {uploadSuccess.utilityBill && (
+                    <p className="text-green-500 text-sm mt-2">
+                      Utility Bill Attached
+                    </p>
+                  )}
+              </div>
               <input
                 className="outline-none hidden"
                 name="utilityBill"
@@ -137,11 +177,20 @@ const UserForm = memo(({ user, handleChange, errors }) => {
                 onChange={handleFileChange}
               />
               {selectedFiles.utilityBill && (
-                <img
-                  src={selectedFiles.utilityBill}
-                  alt="Utility Bill Preview"
-                  className="w-12 h-12 rounded-sm object-cover"
-                />
+                <div>
+                  <img
+                    src={selectedFiles.utilityBill}
+                    alt="Utility Bill Preview"
+                    className="w-12 h-12 rounded-sm object-cover"
+                  />
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                    <div
+                      className="bg-blue-500 h-2.5 rounded-full"
+                      style={{ width: `${uploadProgress.utilityBill}%` }}
+                    />
+                  </div>
+                  
+                </div>
               )}
             </div>
             {errors.utilityBill && (
@@ -153,12 +202,19 @@ const UserForm = memo(({ user, handleChange, errors }) => {
 
           <div className="flex flex-col">
             <div className="flex gap-2 items-center">
-              <label
-                className="relative mb-[9px] block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-                htmlFor="ninSlip"
-              >
-                NIN Slip
-              </label>
+              <div>
+                  <label
+                    className="relative mb-[9px] block bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+                    htmlFor="ninSlip"
+                  >
+                    NIN Slip
+                  </label>
+                  {uploadSuccess.ninSlip && (
+                    <p className="text-green-500 text-sm mt-2">
+                      NIN Slip Attached
+                    </p>
+                  )}
+              </div>
               <input
                 className="outline-none hidden"
                 name="ninSlip"
@@ -168,11 +224,20 @@ const UserForm = memo(({ user, handleChange, errors }) => {
                 onChange={handleFileChange}
               />
               {selectedFiles.ninSlip && (
-                <img
-                  src={selectedFiles.ninSlip}
-                  alt="NIN Slip Preview"
-                  className="w-12 h-12 rounded-sm object-cover"
-                />
+                <div>
+                  <img
+                    src={selectedFiles.ninSlip}
+                    alt="NIN Slip Preview"
+                    className="w-12 h-12 rounded-sm object-cover"
+                  />
+                  <div className="w-full bg-gray-200 rounded-full h-2.5 mt-2">
+                    <div
+                      className="bg-blue-500 h-2.5 rounded-full"
+                      style={{ width: `${uploadProgress.ninSlip}%` }}
+                    />
+                  </div>
+                  
+                </div>
               )}
             </div>
             {errors.ninSlip && (

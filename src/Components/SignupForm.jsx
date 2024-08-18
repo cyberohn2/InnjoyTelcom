@@ -54,7 +54,7 @@ const SignupForm = () => {
         const newFormData = formData.filter((_, index) => index !== indexToDelete);
         const newErrors = errors.filter((_, index) => index !== indexToDelete);
         setFormData(newFormData);
-        setErrors(newErrors);
+        // setErrors(newErrors);
     };
     
 
@@ -145,7 +145,7 @@ const SignupForm = () => {
                 <form onSubmit={handleSubmit}>
                     <h3 className="font-semibold text-xl mb-4">Register for a {chosedPackage.package} package <Link className="underline text-blue-500" to="/select-plan">Change Plan</Link></h3>
                     <p className="text-sm font-semibold text-gray-600 mb-6">Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
-                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+created+an+account+and+would+like+to+make+the+payment+for+it">CONTACT US FOR PAYMENT AFTER REGISTERING</a></p>
+                    <p><Link className="text-green-500 underline font-bold" to="/how-to-pay" >CONTACT US FOR PAYMENT AFTER REGISTERING</Link></p>
 
                     <UserForm 
                         user={formData[0]} 
