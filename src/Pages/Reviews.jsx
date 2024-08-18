@@ -36,11 +36,9 @@ const Reviews = () => {
             if (!response.ok) {
                 throw new Error('Failed to submit review');
             }else{
-                setMessage("Your Review has been submitted successfully!")
+                setMessage("Review Successfully Transmitted!")
+                document.getElementById('reviewForm').style.display = "none"
             }
-            const newReview = await response.json();
-            // Add the new review to the existing list of reviews
-            setReviews([newReview, ...reviews]);
         } catch (error) {
             console.error('Error submitting review:', error);
             setMessage(`Error while submitting the review ${error}`)
@@ -84,8 +82,8 @@ const Reviews = () => {
                                 {/* Review Form */}
                                 <div className="basis-[40%] p-4  sticky top-20">
                                     <p>{message}</p>
+                    <form id="reviewForm" onSubmit={handleSubmit} className="space-y-4">
                     <h1 className="text-xl font-bold mb-4">Write a Review</h1>
-                    <form onSubmit={handleSubmit} className="space-y-4">
                         <div className="mb-4">
                             <label className="block text-sm font-medium text-gray-700">Name</label>
                             <input

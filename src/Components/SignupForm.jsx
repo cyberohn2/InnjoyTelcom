@@ -50,6 +50,14 @@ const SignupForm = () => {
         setErrors([...errors, {}]);
     };
 
+    const handleDeleteNumber = (indexToDelete) => {
+        const newFormData = formData.filter((_, index) => index !== indexToDelete);
+        const newErrors = errors.filter((_, index) => index !== indexToDelete);
+        setFormData(newFormData);
+        setErrors(newErrors);
+    };
+    
+
     const validate = () => {
         const newErrors = formData.map((user, index) => {
             const userErrors = {};
@@ -137,7 +145,7 @@ const SignupForm = () => {
                 <form onSubmit={handleSubmit}>
                     <h3 className="font-semibold text-xl mb-4">Register for a {chosedPackage.package} package <Link className="underline text-blue-500" to="/select-plan">Change Plan</Link></h3>
                     <p className="text-sm font-semibold text-gray-600 mb-6">Are you already a subscriber? <Link className="underline text-blue-500" to="/sign-in#contact">Add new number to your account</Link></p>
-                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US ON WHATSAPP FOR PAYMENT AFTER REGISTERING</a></p>
+                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+created+an+account+and+would+like+to+make+the+payment+for+it">CONTACT US FOR PAYMENT AFTER REGISTERING</a></p>
 
                     <UserForm 
                         user={formData[0]} 
@@ -148,10 +156,12 @@ const SignupForm = () => {
                     {formData.slice(1).map((user, index) => (
                         <OptionalNoForm 
                             key={index + 1}
+                            index= {index + 1}
                             title={`Phone ${index + 2}`}
                             user={user} 
                             handleChange={(e) => handleChange(e, index + 1)} 
                             errors={errors[index + 1]}  
+                            handleDelete={() => handleDeleteNumber(index + 1)}
                         />
                     ))}
 

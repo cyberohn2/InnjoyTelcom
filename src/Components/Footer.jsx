@@ -45,8 +45,8 @@ const Footer = () =>{
                 </div>
                 <div className="divider border border-[83A790] my-[30px]"></div>
                 <p className="text-center text-sm sm:text-base">Copyright © 2024.</p>
-                <p className="text-center text-sm sm:text-base">Powered by innjoy experience.</p>
-                <p className="text-center text-sm sm:text-base">All rights reserved</p>
+                <p className="text-center text-sm sm:text-base">Powered by Innjoy Experience.</p>
+                <p className="text-center text-sm sm:text-base">All Rights Reserved</p>
             </div>
         </footer>
     )

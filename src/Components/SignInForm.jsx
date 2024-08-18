@@ -103,7 +103,7 @@ const SignInForm = () => {
             <div className="basis-[50%]">
                 <form onSubmit={handleSubmit}>
                     <p className="text-sm font-semibold text-gray-600 mb-6">New Subscriber? <Link className="underline text-blue-500" to="/select-plan">Create New Account</Link></p>
-                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US ON WHATSAPP FOR PAYMENT AFTER REGISTERING</a></p>
+                    <p><a className="text-green-500 underline font-bold" href="https://wa.me/+2349076612310?text=Hi+there,+I+just+added+a+new+number+to+my+subscription+and+would+like+to+make+the+payment+for+it">CONTACT US FOR PAYMENT AFTER REGISTERING</a></p>
                     <OptionalNoForm 
                         title="Pilot Details To Add Number To"
                         user={formData[0]} 

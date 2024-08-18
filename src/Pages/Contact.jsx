@@ -32,6 +32,7 @@ const Contact = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        console.log(e.target)
 
         const formErrors = validate();
 
@@ -56,6 +57,7 @@ const Contact = () => {
                     setMessage(data.message);
                     setIsSubmitting(false);
                     setFormData({ name: '', message: '' }); // Reset form data after submission
+                    e.target.style.display = "none"
                 })
                 .catch((error) => {
                     console.error('Error:', error);
@@ -119,8 +121,7 @@ const Contact = () => {
                 <div className="mb-[30px]">
                     <p className="text-[12px] mb-[6px]">Contact info</p>
                     <h2 className="text-[27px] font-semibold mb-[12px]">Keep In Touch</h2>
-                    <p className="text-[12px] text-[#666666]">We prioritize responding to your inquiries promptly to ensure you
-                    receive the assistance you need in a timely manner</p>
+                    <p className="text-[12px] text-[#666666]">We prioritize responding to your inquiries promptly to ensure you receive the assistance you need in a timely manner</p>
                 </div>
                 <form onSubmit={handleSubmit}>
                     {/* Form fields */}
@@ -163,8 +164,8 @@ const Contact = () => {
                     >
                         {isSubmitting ? 'Sending...' : 'Send'}
                     </button>
-                    {message && <p className="mt-4">{message}</p>}
                 </form>
+                    {message && <p className="mt-4">{message}</p>}
             </div>
         </div>
     );
