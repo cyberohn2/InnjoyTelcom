@@ -1,4 +1,5 @@
 import SignupForm from "../Components/SignupForm";
+import { useEffect } from "react"
 
 
 const SignUp = () =>{

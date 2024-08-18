@@ -1,3 +1,5 @@
+import { useEffect } from "react"
+
 import { useState } from "react";
 import fbIcon from "/icon-facebook.svg"
 import IgIcon from "/icon-instagram.svg"

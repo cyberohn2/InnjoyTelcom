@@ -1,5 +1,7 @@
 import phoneIcon from "/phone-icon.svg"
 import whatsAppIcon from "/whatsapp-icon.png"
+import { useEffect } from "react"
+
 
 const HowToPay = () =>{
     useEffect(() => {
