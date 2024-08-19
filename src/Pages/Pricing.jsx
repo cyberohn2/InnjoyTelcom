@@ -19,7 +19,7 @@ const Pricing = () =>{
                     <div className="max-w-[413.25px] mx-auto text-center mb-[30px]">
                         <p className="text-[15px]">Our Pricing</p>
                         <h2 className="sm:text-[33px] text-[24px] font-semibold ">Select a Plan to Register</h2>
-                        <p className="font-semibold mt-4">*Free SMS Included in all Plans </p>
+                        <p className="font-semibold mt-4">*80 Free SMS and 1800 Minutes Talk Time Included In All Packages Monthly</p>
                     </div>
                     <div className="grid sm:grid-cols-3 grid-cols-1 gap-[22px]">
                         <Link to="/sign-up" state={{package:oneMonth}}>

@@ -12,6 +12,7 @@ import Pricing from "./Pages/Pricing"
 import SuccessPage from "./Pages/SuccessPage"
 import HowToPay from "./Pages/HowToPay"
 import SendReview from "./Pages/SendReview"
+import DeleteReviewForm from "./Pages/DeleteReviewForm"
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
           <Route exact path="/success-page" element={<SuccessPage />}></Route>
           <Route exact path="/how-to-pay" element={<HowToPay />}></Route>
           <Route exact path="/send-review" element={<SendReview />}></Route>
+          <Route exact path="/delete-review" element={<DeleteReviewForm />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />

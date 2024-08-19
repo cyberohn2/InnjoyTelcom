@@ -87,7 +87,7 @@ const Contact = () => {
                         
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Call Us</h3>
-                            <p className="text-[12px] text-[#666666]"><a href="tel:+2349076612310">+234 907 661 2310</a></p>
+                            <p className="text-[12px] text-[#666666]"><a href="tel:+2349076612310">090 766 123 10</a></p>
                         </div>
                     </div>
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">
@@ -113,15 +113,15 @@ const Contact = () => {
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">
                         
                         <div>
-                            <h3 className="mb-[6px] text-[15px] font-semibold">Address</h3>
-                            <p className="text-[12px] text-[#666666]">Km 45/46 Lekki-Epe Expressway Near Ibeju-Lekki LGA Secretariat Igando-Oloja, Ibeju-Lekki Lagos</p>
+                            <h3 className="mb-[6px] text-[15px] font-semibold">Office Address</h3>
+                            <p className="text-[12px] text-[#666666]">Km 45/46 Lekki-Epe<br />Expressway<br />Ibeju-Lekki LGA<br />Lagos, Nigeria</p>
                         </div>
                     </div>
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">
                         
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Postal Address</h3>
-                            <p className="text-[12px] text-[#666666]">PMB 222 Ikota Post Office, Ikota Lekki, Lagos, Nigeria</p>
+                            <p className="text-[12px] text-[#666666]">PMB 222 Ikota Post Office<br />Ikota Lekki<br />Lagos, Nigeria</p>
                         </div>
                     </div>
                 </div>
