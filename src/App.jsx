@@ -13,6 +13,7 @@ import SuccessPage from "./Pages/SuccessPage"
 import HowToPay from "./Pages/HowToPay"
 import SendReview from "./Pages/SendReview"
 import DeleteReviewForm from "./Pages/DeleteReviewForm"
+import WebMailRedir from "./Pages/WebMailRedir"
 
 function App() {
 
@@ -33,6 +34,7 @@ function App() {
           <Route exact path="/how-to-pay" element={<HowToPay />}></Route>
           <Route exact path="/send-review" element={<SendReview />}></Route>
           <Route exact path="/delete-review" element={<DeleteReviewForm />}></Route>
+          <Route exact path="/webmail" element={<WebMailRedir />}></Route>
           {/* other routes */}
         </Routes>
         <Footer />
