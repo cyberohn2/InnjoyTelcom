@@ -1,8 +1,13 @@
 import { useState } from "react";
 import OptionalNoForm from "./OptionalNoForm";
 import { Link } from "react-router-dom";
+import { useNavigate } from 'react-router-dom';
+
 
 const SignInForm = () => {
+    const navigate = useNavigate();
+
+
     const [formData, setFormData] = useState([
         { firstName: "", lastName: "", phoneNumber: "", nin: "" }, // Pilot Account
         { firstName: "", lastName: "", phoneNumber: "", nin: "" }, // Secondary Airtel Line (Default)
@@ -36,6 +41,22 @@ const SignInForm = () => {
             if (!user.nin) userErrors.nin = "NIN Number is required";
 
             return userErrors;
+        });
+
+        // Check for duplicate phone numbers and NINs
+        const phoneNumbers = formData.map((user) => user.phoneNumber);
+        const nins = formData.map((user) => user.nin);
+
+        phoneNumbers.forEach((number, idx) => {
+            if (phoneNumbers.indexOf(number) !== idx) {
+                newErrors[idx].phoneNumber = "You cannot have the same Phone Numbers in two forms, check if you have added this number to a form already.";
+            }
+        });
+
+        nins.forEach((nin, idx) => {
+            if (nins.indexOf(nin) !== idx) {
+                newErrors[idx].nin = "You cannot have the same NIN Numbers in two forms, check if you have added this number to a form already.";
+            }
         });
 
         setErrors(newErrors);
@@ -80,6 +101,7 @@ const SignInForm = () => {
                     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
                     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
                 ]);
+                navigate("/how-to-pay", { state: { message: 'You New Number has been sent Successfully !!, Choose A Suitable Method To Contact Us For Payment'} })
             })
             .catch(() => {
                 setMessage("There was an error submitting the form. Please try again.");
@@ -114,7 +136,7 @@ const SignInForm = () => {
                     {formData.slice(1).map((user, index) => (
                         <OptionalNoForm 
                             key={index + 1}
-                            index={index +1}
+                            index={index + 1}
                             title="Secondary Airtel Lines and Details"
                             user={user} 
                             handleChange={(e) => handleChange(e, index + 1)} 

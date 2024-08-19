@@ -1,11 +1,13 @@
 import { useState } from "react";
 import UserForm from "./UserForm";
 import OptionalNoForm from "./OptionalNoForm";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const SignupForm = () => {
     const location = useLocation();
     const chosedPackage = location.state;
+    const navigate = useNavigate();
+
     
     const [formData, setFormData] = useState([
         { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null }, // Pilot Account
@@ -54,9 +56,8 @@ const SignupForm = () => {
         const newFormData = formData.filter((_, index) => index !== indexToDelete);
         const newErrors = errors.filter((_, index) => index !== indexToDelete);
         setFormData(newFormData);
-        // setErrors(newErrors);
+        setErrors(newErrors);
     };
-    
 
     const validate = () => {
         const newErrors = formData.map((user, index) => {
@@ -74,7 +75,24 @@ const SignupForm = () => {
             return userErrors;
         });
 
+        // Check for duplicate phone numbers and NINs
+        const phoneNumbers = formData.map((user) => user.phoneNumber);
+        const nins = formData.map((user) => user.nin);
+
+        phoneNumbers.forEach((number, idx) => {
+            if (phoneNumbers.indexOf(number) !== idx) {
+                newErrors[idx].phoneNumber = "You cannot have the same Phone Numbers in two forms, check if you have added this number to a form already.";
+            }
+        });
+
+        nins.forEach((nin, idx) => {
+            if (nins.indexOf(nin) !== idx) {
+                newErrors[idx].nin = "You cannot have the same NIN Numbers in two forms, check if you have added this number to a form already.";
+            }
+        });
+
         setErrors(newErrors);
+
         return newErrors.every((userErrors) => Object.keys(userErrors).length === 0);
     };
 
@@ -118,9 +136,10 @@ const SignupForm = () => {
                 setMessage("You have successfully registered, you'll be contacted shortly.");
                 setMessageColor("text-green-500");
                 setFormData([
-                    { firstName: "", lastName: "", phoneNumber: "", nin: "" },
+                    { firstName: "", lastName: "", phoneNumber: "", nin: "", utilityBill: null, ninSlip: null },
                     { firstName: "", lastName: "", phoneNumber: "", nin: "" },
                 ]);
+                navigate("/how-to-pay", { state: { message: 'You have been successfully Registered!!, Choose A Suitable Method To Contact Us For Payment'} })
             })
             .catch(() => {
                 setMessage("There was an error submitting the form. Please try again.");
@@ -169,7 +188,7 @@ const SignupForm = () => {
                         <button onClick={handleAddNewNumber} className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
                             Add New Number
                         </button>
-                        <button type="submit" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600">
+                        <button type="submit" className="bg-green-500 text-white py-2 px-4 rounded hover:bg-green-600" disabled={isSubmitting}>
                             Submit
                         </button>
                     </div>

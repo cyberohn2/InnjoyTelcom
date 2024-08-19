@@ -2,7 +2,6 @@ import {  memo } from "react";
 
 
 const OptionalNoForm = memo(({ index, title, user, handleChange, errors, handleDelete }) => {
-    console.log(index);
     
     return (
         <div className="mb-[22px] flex flex-col gap-[22px] border-b border-gray-400 py-2">
@@ -53,6 +52,8 @@ const OptionalNoForm = memo(({ index, title, user, handleChange, errors, handleD
                         type="text"
                         value={user.phoneNumber}
                         onChange={handleChange}
+                        minlength="11"
+                        maxlength="13"
                     />
                 </div>
                 {errors.phoneNumber && <p className="text-[#ff4545] text-sm font-semibold">{errors.phoneNumber}</p>}
@@ -67,6 +68,8 @@ const OptionalNoForm = memo(({ index, title, user, handleChange, errors, handleD
                         type="text"
                         value={user.nin}
                         onChange={handleChange}
+                        minlength="11"
+                        maxlength="13"
                     />
                 </div>
                 {errors.nin && <p className="text-[#ff4545] text-sm font-semibold">{errors.nin}</p>}

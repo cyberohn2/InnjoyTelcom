@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import Cta from "../Components/Cta"
 import PryCtaBtn from "../Components/PryCtaBtn"
-import AboutHeroImgMobile from "/about-hero-mobile.png"
+import AboutHeroImgMobile from "/about-hero-mobile.jpg"
 import check from "/check.svg"
 
 
@@ -11,7 +11,7 @@ const About = () =>{
       }, []);
     return(
         <div className=" ">
-            <div style={{backgroundImage: `url(${AboutHeroImgMobile})`, backgroundSize: 'cover', backgroundPosition: 'center',}} className="px-8 bg-no-repeat md:bg-[url(/about-hero.png)] relative isolate before:absolute before:inset-0 before:bg-[#2525258f] before:-z-10">
+            <div style={{backgroundImage: `url(${AboutHeroImgMobile})`, backgroundSize: 'cover', backgroundPosition: 'center',}} className="px-8 bg-no-repeat md:bg-[url(/about-hero.jpg)] relative isolate before:absolute before:inset-0 before:bg-[#2525258f] before:-z-10">
                 <div className="py-[6.875rem] max-w-[1440px] mx-auto">
                     <div className="hero-content mr-auto max-w-[450px]">
                         <div className="mb-[30px]">

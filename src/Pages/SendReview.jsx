@@ -1,9 +1,12 @@
 // SendReview.js
 import React, { useEffect } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
+
 
 const SendReview = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+
 
   useEffect(() => {
     const name = searchParams.get('name');
@@ -28,8 +31,7 @@ const SendReview = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          alert('Review successfully sent!');
-          console.log('Success:', data);
+          navigate("/success-page", { state: { message: 'Review Added Successfully: ' + data} })
         })
         .catch((error) => {
           alert('Error sending review');
@@ -43,7 +45,7 @@ const SendReview = () => {
   return (
     <div className="py-[56px] flex flex-col items-center justify-between gap-4 max-w-[1080px] mx-auto px-8">
       <h1 className="mb-[30px] text-[30px] font-semibold text-center">Processing your review...</h1>
-      <p>This page is handling the submission of your review to our system.</p>
+      <p>This page is handling the submission of the review to the system.</p>
     </div>
   );
 };

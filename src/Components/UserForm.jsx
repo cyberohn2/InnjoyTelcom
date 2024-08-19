@@ -124,6 +124,8 @@ const UserForm = memo(({ user, handleChange, errors }) => {
               type="text"
               value={user.phoneNumber}
               onChange={handleChange}
+              minlength="11"
+              maxlength="13"
             />
           </div>
           {errors.phoneNumber && (
@@ -145,6 +147,8 @@ const UserForm = memo(({ user, handleChange, errors }) => {
               type="text"
               value={user.nin}
               onChange={handleChange}
+              minlength="11"
+              maxlength="13"
             />
           </div>
           {errors.nin && (
