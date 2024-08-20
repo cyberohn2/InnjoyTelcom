@@ -79,7 +79,7 @@ const Testimonials = () => {
                     </Swiper>
                 </div>
             </div>
-            <PryCtaBtn text="See More" link="our-reviews" />
+            <PryCtaBtn text="See More" link="/our-reviews" />
         </div>
     );
 };

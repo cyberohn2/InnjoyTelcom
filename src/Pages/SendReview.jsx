@@ -31,7 +31,7 @@ const SendReview = () => {
       })
         .then((response) => response.json())
         .then((data) => {
-          navigate("/success-page", { state: { message: 'Review Added Successfully: ' + data} })
+          navigate("/success-page", { state: { message: 'Review Added Successfully'} })
         })
         .catch((error) => {
           alert('Error sending review');

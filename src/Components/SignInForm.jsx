@@ -32,6 +32,13 @@ const SignInForm = () => {
         setErrors([...errors, {}]); // Extend errors array to match the form data
     };
 
+    const handleDeleteNumber = (indexToDelete) => {
+        const newFormData = formData.filter((_, index) => index !== indexToDelete);
+        const newErrors = errors.filter((_, index) => index !== indexToDelete);
+        setFormData(newFormData);
+        setErrors(newErrors);
+    };
+
     const validate = () => {
         const newErrors = formData.map((user) => {
             const userErrors = {};
@@ -141,6 +148,7 @@ const SignInForm = () => {
                             user={user} 
                             handleChange={(e) => handleChange(e, index + 1)} 
                             errors={errors[index + 1]}  
+                            handleDelete={() => handleDeleteNumber(index + 1)}
                         />
                     ))}
 
