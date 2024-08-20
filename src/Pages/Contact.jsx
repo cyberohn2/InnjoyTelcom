@@ -114,7 +114,7 @@ const Contact = () => {
                         
                         <div>
                             <h3 className="mb-[6px] text-[15px] font-semibold">Office Address</h3>
-                            <p className="text-[12px] text-[#666666]">Km 45/46 Lekki-Epe<br />Expressway<br />Ibeju-Lekki LGA<br />Lagos, Nigeria</p>
+                            <p className="text-[12px] text-[#666666]">Km 45/46 Lekki-Epe Expressway<br />Ibeju-Lekki LGA<br />Lagos, Nigeria</p>
                         </div>
                     </div>
                     <div className="p-[15px] rounded-[9px] bg-[#FBFBFB] border border-[#F3F3F3] flex items-center">
