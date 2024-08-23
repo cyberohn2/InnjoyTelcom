@@ -20,7 +20,7 @@ const Reviews = () => {
     // Function to fetch reviews from the backend
     const fetchReviews = async () => {
         try {
-            const response = await fetch('https://innjoytelcom-backend-production.up.railway.app/reviews');
+            const response = await fetch('https://innjoytelcom-backend-production.up.railway.app/submit-review');
             if (!response.ok) {
                 throw new Error('Failed to fetch reviews');
             }

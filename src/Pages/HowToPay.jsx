@@ -27,6 +27,8 @@ const HowToPay = () => {
                     <a href="https://wa.me/+2349076612310">Message Our Customer Service</a>
                 </button>
             </div>
+            <div className="divider border border-[#83A790] my-[30px]"></div>
+            <p className="text-center text-sm sm:text-base">Powered by Innjoy Experience.</p>
         </div>
     );
 }
