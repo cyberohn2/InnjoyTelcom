@@ -7,6 +7,8 @@ import XIcon from "/icon-twitter.svg"
 import YTIcom from "/youtube.svg"
 import TTIcom from "/tik-tok.svg"
 import WhatsappIcon from "/whatsapp-icon.png"
+import LinkedinIcon from "/linkedin.svg"
+
 import { useNavigate } from 'react-router-dom';
 
 const Contact = () => {
@@ -102,6 +104,7 @@ const Contact = () => {
                                 <a target="_" href="https://x.com/InnjoyTelcom"><img src={XIcon} alt="" /></a>
                                 <a target="_" href="https://wa.me/+2349076612310"><img width={20} src={WhatsappIcon} alt="" /></a>
                                 <a target="_" href="https://youtube.com/@innjoytelcom?si=u1i0q6PWVwkqKRoi"><img width={20} src={YTIcom} alt="" /></a>
+                                <a target="_" href="https://www.linkedin.com/in/innjoy-telcom-637336325/"><img width={20} src={LinkedinIcon} alt="" /></a>
                             </div>
                         </div>
                     </div>
