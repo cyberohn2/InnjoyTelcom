@@ -100,7 +100,7 @@ const Contact = () => {
                             <div className="flex gap-6 items-center">
                                 <a target="_" href="https://m.facebook.com/profile.php?id=61563958125862&name=xhp_nt_fbaction_open_user"><img src={fbIcon} alt="" /></a>
                                 <a target="_" href="https://www.instagram.com/innjoytelcom/"><img src={IgIcon} alt="" /></a>
-                                <a target="_" href="https://www.tiktok.com/@user6720310709715"><img src={TTIcom} alt="" /></a>
+                                <a target="_" href="https://Tiktok.com/@innjoytelcom"><img src={TTIcom} alt="" /></a>
                                 <a target="_" href="https://x.com/InnjoyTelcom"><img src={XIcon} alt="" /></a>
                                 <a target="_" href="https://wa.me/+2349076612310"><img width={20} src={WhatsappIcon} alt="" /></a>
                                 <a target="_" href="https://youtube.com/@innjoytelcom?si=u1i0q6PWVwkqKRoi"><img width={20} src={YTIcom} alt="" /></a>
