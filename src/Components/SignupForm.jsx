@@ -85,11 +85,7 @@ const SignupForm = () => {
             }
         });
 
-        nins.forEach((nin, idx) => {
-            if (nins.indexOf(nin) !== idx) {
-                newErrors[idx].nin = "You cannot have the same NIN Numbers in two forms, check if you have added this number to a form already.";
-            }
-        });
+        
 
         setErrors(newErrors);
 
