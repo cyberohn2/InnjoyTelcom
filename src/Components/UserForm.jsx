@@ -137,7 +137,7 @@ const UserForm = memo(({ user, handleChange, errors }) => {
 
         <div className="flex flex-col items-start">
           <label className="mb-1 block text-gray-600 text-sm" htmlFor="nin">
-            NIN Number
+            NIN
           </label>
           <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3] w-full">
             <input
