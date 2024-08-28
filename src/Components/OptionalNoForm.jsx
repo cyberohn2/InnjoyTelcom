@@ -59,7 +59,7 @@ const OptionalNoForm = memo(({ index, title, user, handleChange, errors, handleD
                 {errors.phoneNumber && <p className="text-[#ff4545] text-sm font-semibold">{errors.phoneNumber}</p>}
             </div>
             <div className="flex flex-col items-start">
-                <label className="mb-1 block text-gray-600 text-sm" htmlFor="nin">NIN Number</label>
+                <label className="mb-1 block text-gray-600 text-sm" htmlFor="nin">NIN</label>
                 <div className="flex gap-2 p-2 rounded-lg bg-white border border-[#F3F3F3]">
                     <input
                         className="outline-none w-full"
